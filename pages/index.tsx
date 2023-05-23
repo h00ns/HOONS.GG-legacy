@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
-import { resolve } from "node:path/win32";
-import { useEffect, useState } from "react";
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return <></>;

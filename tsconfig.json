@@ -41,16 +41,16 @@
         "./static/*"
       ],    
       "@constants/*":[
-        "./static/*"
+        "./constants/*"
       ],
       "@recoil/*":[
-        "./static/*"
+        "./recoil/*"
       ],
       "@customType/*":[
         "./customType/*"
       ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/summoner/index.js"],
   "exclude": ["node_modules"]
 }

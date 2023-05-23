@@ -1,3 +1,3 @@
-export interface getSummonerInfoByNameType {
+export type getSummonerInfoByNameType = {
   summonerName: string;
 }

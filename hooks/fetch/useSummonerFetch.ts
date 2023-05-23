@@ -9,13 +9,17 @@ import { useQuery } from "react-query"
  *  @param {string} summonerName 소환사 이름
  */
 export const useGetSummonerInfoByNameFetch = ({ summonerName}:getSummonerInfoByNameType) => {
-  const { data: getSummonerInfoByNameData } = useQuery(['getSummonerInfo', summonerName], async () => {
-    const result = await getSummonerInfoByNameApi({ summonerName });
-    return result;
-  }, {
-    onError: (err: AxiosError) => {
-      console.log(err)
-    }
+  const { data: getSummonerInfoByNameData } = useQuery(
+    ['getSummonerInfo', summonerName],
+    async () => {
+      const result = await getSummonerInfoByNameApi({ summonerName });
+      return result;
+    },
+    {
+      enabled: !!summonerName,
+      onError: (err: AxiosError) => {
+        console.log(err)
+      }
   })
 
   return {

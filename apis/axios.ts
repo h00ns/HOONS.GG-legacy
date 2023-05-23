@@ -1,13 +1,14 @@
 import axios from 'axios'
+import { MINUTE } from 'constants/time';
 
 let baseURL = ``;
 
-const api = axios.create({
+const API = axios.create({
   baseURL: baseURL,
-  timeout: 180000,
+  timeout: 3 * MINUTE,
   headers: {
     'Content-Type': 'application/json',
   },
 })
 
-export default api;
+export default API;

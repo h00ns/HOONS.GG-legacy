@@ -1,5 +1,5 @@
 export const primary = {
-  blue: '#0D4FDE',
+  blue: '#5383E8',
   gray: '#222222',
 };
 

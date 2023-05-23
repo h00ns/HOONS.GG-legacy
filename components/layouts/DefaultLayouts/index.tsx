@@ -1,6 +1,7 @@
 import Footer from '@components/_organisms/footer';
 import Header from '@components/_organisms/header';
 import styled from '@emotion/styled';
+import { primary } from '@styles/Colors';
 
 type Props = {
   readonly children: React.ReactNode;
@@ -14,6 +15,8 @@ const Layout = styled.div`
   flex: 1;
   flex-direction: column;
   align-items: stretch;
+
+  background: ${primary.blue};
 `;
 
 const Content = styled.div`

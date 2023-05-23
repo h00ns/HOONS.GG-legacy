@@ -45,6 +45,9 @@
       ],
       "@recoil/*":[
         "./static/*"
+      ],
+      "@customType/*":[
+        "./customType/*"
       ]
     }
   },

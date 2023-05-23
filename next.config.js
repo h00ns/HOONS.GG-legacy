@@ -27,6 +27,7 @@ const nextConfig = {
         '@static': path.resolve(__dirname, 'static'),
         '@recoil': path.resolve(__dirname, 'recoil'),
         '@constants': path.resolve(__dirname, 'constants'),
+        '@customType': path.resolve(__dirname, 'customType')
       },
       ...config.resolve,
 

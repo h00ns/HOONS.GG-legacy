@@ -11,7 +11,7 @@ import { mq } from '@utils/style';
 
 const SearchWrapper = styled.div`
   width: 100%;
-  max-width: 528px;
+  max-width: 728px;
   padding: 210px 40px;
   margin: 0 auto;
 

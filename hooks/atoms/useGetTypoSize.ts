@@ -4,6 +4,18 @@ import { useMemo } from "react";
 export const useGetTypoSize = (size:TypoSize): [number,string] => {
   const [fontWeight, fontSize] = useMemo(() => {
     switch (size) {
+      case TypoSize.H1:
+        return [800, '90px'];
+      case TypoSize.H2:
+        return [800, '66px'];
+      case TypoSize.H3:
+        return [700, '52px'];
+      case TypoSize.H4:
+        return [700, '40px'];
+      case TypoSize.H5:
+        return [700, '32px'];
+      case TypoSize.H6:
+        return [700, '28px', '46px'];
       case TypoSize.SH1:
         return [700, '24px'];
       case TypoSize.SH2:

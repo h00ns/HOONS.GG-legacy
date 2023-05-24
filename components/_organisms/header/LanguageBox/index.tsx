@@ -2,12 +2,13 @@ import styled from '@emotion/styled';
 
 //  components
 import Icon from '@components/_atoms/Icon';
+import LanguageModal from './LanguageModal';
 
 //  constants
 import { primary, white } from '@styles/Colors';
 import { useRef, useState } from 'react';
-import LanguageModal from './LanguageModal';
-import useHandleOutsideClickAction from '@hooks/interaction/useHandleOutsideClick';
+
+//  hooks
 import useHandleOutsideClick from '@hooks/interaction/useHandleOutsideClick';
 
 type Props = {

@@ -7,7 +7,7 @@ import Head from 'next/head';
 const SearchWrapper = styled.div`
   width: 100%;
   max-width: 528px;
-  padding: 256px 0;
+  padding: 256px 40px;
   margin: 0 auto;
 `;
 

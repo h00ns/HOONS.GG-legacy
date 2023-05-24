@@ -4,7 +4,7 @@ import { Shadow } from '@styles/Shadow';
 
 const Layout = styled.div`
   height: 200px;
-  background: ${gray.gray3};
+  background: ${gray.gray1};
   box-shadow: ${Shadow.MEDIUM};
 `;
 

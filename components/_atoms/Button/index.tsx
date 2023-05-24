@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Text from '@components/_atoms/Text';
 import { TextSize } from '@constants/atoms/TextSize';
 import { Radius } from '@styles/Radius';
-import { black, gray } from '@styles/Colors';
+import { primary } from '@styles/Colors';
 
 type Props = {
   readonly width?: string;
@@ -17,7 +17,7 @@ type CssProps = {
 const Layout = styled.div<CssProps>`
   padding: 12px 23px;
   border-radius: ${Radius.MEDIUM};
-  background-color: ${gray.gray4};
+  background-color: ${primary.blue};
   cursor: pointer;
 
   display: flex;
@@ -25,7 +25,7 @@ const Layout = styled.div<CssProps>`
   align-items: center;
 
   &:hover {
-    background-color: ${gray.gray5};
+    opacity: 0.8;
   }
 `;
 

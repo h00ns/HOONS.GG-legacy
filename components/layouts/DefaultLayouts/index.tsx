@@ -1,13 +1,14 @@
 import Footer from '@components/_organisms/footer';
 import Header from '@components/_organisms/header';
 import styled from '@emotion/styled';
-import { primary } from '@styles/Colors';
+import { white } from '@styles/Colors';
 
 type Props = {
   readonly children: React.ReactNode;
+  readonly isHome?: boolean;
 };
 
-const Layout = styled.div`
+const Layout = styled.div<{ isHome?: boolean }>`
   width: 100%;
   min-height: 100vh;
 
@@ -16,7 +17,15 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: stretch;
 
-  background: ${primary.blue};
+  background-color: #5383e8;
+  background-image: linear-gradient(315deg, #ffffff 0%, #63a4ff 94%);
+
+  /* only Home */
+  ${({ isHome }) =>
+    isHome &&
+    `
+    background: ${white}
+  `}
 `;
 
 const Content = styled.div`
@@ -29,9 +38,9 @@ const Content = styled.div`
   position: relative;
 `;
 
-export default function DefaultLayout({ children }: Props) {
+export default function DefaultLayout({ children, isHome }: Props) {
   return (
-    <Layout>
+    <Layout isHome={isHome}>
       {/* Header */}
       <Header />
       {/* Header end */}
@@ -40,8 +49,8 @@ export default function DefaultLayout({ children }: Props) {
       <Content>{children}</Content>
       {/* Content end */}
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer only Home */}
+      {isHome && <Footer />}
       {/* Footer end */}
     </Layout>
   );

@@ -9,13 +9,7 @@ type Props = {
   readonly children?: React.ReactNode;
 };
 
-type CssProps = {
-  fontWeight: number;
-  fontSize: string;
-  color: string;
-};
-
-const Layout = styled.div<CssProps>`
+const Layout = styled.div`
   word-break: keep-all;
   white-space: pre-line;
   letter-spacing: -2%;
@@ -24,9 +18,5 @@ const Layout = styled.div<CssProps>`
 export default function Text({ size, color = primary.gray, children }: Props) {
   const [fontWeight, fontSize] = useGetTextSize(size);
 
-  return (
-    <Layout fontSize={fontSize} fontWeight={fontWeight} color={color}>
-      {children}
-    </Layout>
-  );
+  return <Layout style={{ fontWeight, fontSize, color }}>{children}</Layout>;
 }

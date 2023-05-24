@@ -28,7 +28,6 @@ export default function SearchContent() {
 
   // search submit
   const handleFormSubmit = () => {
-    console.log(123);
     router.push(`/search?name=${form}`, undefined, { shallow: true });
   };
 

@@ -7,5 +7,5 @@ import { AxiosResponse } from "axios"
  *  @function getSummonerInfoByNameApi
  */
 export const getSummonerInfoByNameApi = ({summonerName}:getSummonerInfoByNameType): Promise<AxiosResponse> => {
-  return API.get(`/lol/summoner/v4/summoners/by-name/${summonerName}`)
+  return API.get(`/api/summoner/${summonerName}`)
 }

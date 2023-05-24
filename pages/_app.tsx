@@ -14,6 +14,8 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
           queries: {
             // staleTime: Infinity,
             cacheTime: Infinity,
+            retry: 0,
+            refetchOnWindowFocus: false,
           },
         },
       }),

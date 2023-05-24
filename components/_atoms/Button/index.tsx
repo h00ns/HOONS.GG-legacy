@@ -16,8 +16,9 @@ type CssProps = {
   readonly width?: string;
 };
 
-const Layout = styled.div<CssProps>`
+const Layout = styled.button<CssProps>`
   padding: 12px 23px;
+  border: none;
   border-radius: ${Radius.MEDIUM};
   background-color: ${primary.blue};
   cursor: pointer;

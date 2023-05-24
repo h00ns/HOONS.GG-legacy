@@ -19,9 +19,5 @@ export default function Content() {
 
   const { getSummonerInfoByNameData: summonerData } = useGetSummonerInfoByNameFetch({ summonerName });
 
-  return (
-    <Layout>
-      <SummonerInfoCard />
-    </Layout>
-  );
+  return <Layout>{summonerData && <SummonerInfoCard data={summonerData} />}</Layout>;
 }

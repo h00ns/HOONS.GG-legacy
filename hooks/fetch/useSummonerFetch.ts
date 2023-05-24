@@ -1,5 +1,5 @@
 import { getSummonerInfoByNameApi } from "@apis/summoner"
-import { getSummonerInfoByNameType } from "@customType/summoner"
+import { getSummonerInfoByNamePayload } from "@customType/summoner"
 import { AxiosError } from "axios"
 import { useQuery } from "react-query"
 
@@ -8,15 +8,16 @@ import { useQuery } from "react-query"
  *  @function useGetSummonerInfoByNameFetch
  *  @param {string} summonerName 소환사 이름
  */
-export const useGetSummonerInfoByNameFetch = ({ summonerName}:getSummonerInfoByNameType) => {
+export const useGetSummonerInfoByNameFetch = ({ summonerName}:getSummonerInfoByNamePayload) => {
   const { data: getSummonerInfoByNameData } = useQuery(
     ['getSummonerInfo', summonerName],
     async () => {
       const result = await getSummonerInfoByNameApi({ summonerName });
-      return result;
+      return result.data.data;
     },
     {
       enabled: !!summonerName,
+      keepPreviousData: true,
       onError: (err: AxiosError) => {
         console.log(err)
       }

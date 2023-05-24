@@ -1,12 +1,22 @@
+import styled from '@emotion/styled';
+import type { NextPage } from 'next';
+
+/**
+ *  Components
+ */
+import DefaultLayout from '@components/layouts/DefaultLayouts';
+// templates
 import MainSection from '@components/_templetes/Home/MainSection';
 import Section0 from '@components/_templetes/Home/Section0';
 import Section1 from '@components/_templetes/Home/Section1';
 import Section2 from '@components/_templetes/Home/Section2';
-import DefaultLayout from '@components/layouts/DefaultLayouts';
-import styled from '@emotion/styled';
+
+// constants
 import { gray } from '@styles/Colors';
 import { mq } from '@utils/style';
-import type { NextPage } from 'next';
+
+//  다국어 지원
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const HomeWrapper = styled.div``;
 
@@ -58,5 +68,11 @@ const Home: NextPage = () => {
     </DefaultLayout>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common', 'home'])),
+  },
+});
 
 export default Home;

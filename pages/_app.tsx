@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/globals.css';
 import type { AppContext, AppInitialProps, AppProps } from 'next/app';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { NextComponentType } from 'next';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import Head from 'next/head';
+import { appWithTranslation } from 'next-i18next';
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }) => {
   const [queryClient] = React.useState(
@@ -24,17 +25,19 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
   return (
     <>
       <Head>
-        <title>Hoon.gg</title>
-        <meta name="title" content="Hoon.gg" />
+        <title>HOONS.GG</title>
+        <meta name="title" content="HOONS.GG" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Hoon.gg" />
-        <meta property="og:description" content="Hoon.gg" />
+        <meta property="og:title" content="HOONS.GG" />
+        <meta property="og:description" content="HOONS.GG" />
         {/* Open Graph end */}
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
 
         {/* dev tools only local */}
         <ReactQueryDevtools />
@@ -54,4 +57,4 @@ MyApp.getInitialProps = async ({ Component, ctx }: AppContext): Promise<AppIniti
   return { pageProps };
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp);

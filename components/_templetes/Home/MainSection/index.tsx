@@ -1,10 +1,17 @@
+import styled from '@emotion/styled';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
+
+/**
+ *  Components
+ */
+//  atoms
 import Button from '@components/_atoms/Button';
 import Text from '@components/_atoms/Text';
+
+//  constants
 import { TextSize } from '@constants/atoms/TextSize';
-import styled from '@emotion/styled';
-import { gray, white } from '@styles/Colors';
 import { mq } from '@utils/style';
-import Link from 'next/link';
 
 const Layout = styled.div`
   height: 1080px;
@@ -35,10 +42,12 @@ const ButtonWrapper = styled.div`
 `;
 
 export default function MainSection() {
+  const { t, i18n } = useTranslation('home');
+
   return (
     <Layout>
       <Content>
-        <Text size={TextSize.SH1}>Hoon.gg는 League of Legend 전적 검색 플랫폼입니다.</Text>
+        <Text size={TextSize.SH1}>{t('main.title')}</Text>
 
         <ButtonWrapper>
           <Link href="/search">

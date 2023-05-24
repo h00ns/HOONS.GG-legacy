@@ -1,4 +1,5 @@
 const path = require('path');
+const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
   reactStrictMode: false,
@@ -34,6 +35,7 @@ const nextConfig = {
     };
     return config;
   },
+  i18n, // 다국어 지원
 }
 
 module.exports = nextConfig

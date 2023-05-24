@@ -5,9 +5,9 @@ import styled from '@emotion/styled';
 //  components
 import DefaultLayout from '@components/layouts/DefaultLayouts';
 import SearchContent from '@components/_organisms/service/SearchContent';
-import { mq } from '@utils/style';
 
 //  constants
+import { mq } from '@utils/style';
 
 const SearchWrapper = styled.div`
   width: 100%;

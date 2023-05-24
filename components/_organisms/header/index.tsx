@@ -1,10 +1,15 @@
-import Text from '@components/_atoms/Text';
-import { TextSize } from '@constants/atoms/TextSize';
 import styled from '@emotion/styled';
-import { useCheckScrollToTop } from '@hooks/interaction/useCheckScrollToTop';
+
+//  components
+import Logo from './Logo';
+import LanguageBox from './LanguageBox';
+
+//  constants
 import { gray, white } from '@styles/Colors';
 import { Shadow } from '@styles/Shadow';
-import Link from 'next/link';
+
+//  hooks
+import { useCheckScrollToTop } from '@hooks/interaction/useCheckScrollToTop';
 
 const Layout = styled.div<{ isHomeTop: boolean }>`
   position: fixed;
@@ -32,24 +37,13 @@ const Layout = styled.div<{ isHomeTop: boolean }>`
   `}
 `;
 
-const LogoWrapper = styled.div`
-  cursor: pointer;
-`;
-
 export default function Header() {
   const isHomeTop = useCheckScrollToTop();
 
   return (
     <Layout isHomeTop={isHomeTop}>
-      <Link href={'/'}>
-        <a>
-          <LogoWrapper>
-            <Text size={TextSize.SH1} color={white}>
-              Hoon.gg
-            </Text>
-          </LogoWrapper>
-        </a>
-      </Link>
+      <Logo isHomeTop={isHomeTop} />
+      <LanguageBox isHomeTop={isHomeTop} />
     </Layout>
   );
 }

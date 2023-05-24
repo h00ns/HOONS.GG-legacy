@@ -1,11 +1,12 @@
 import React from 'react';
 import '../styles/globals.css';
+import Head from 'next/head';
 import type { AppContext, AppInitialProps, AppProps } from 'next/app';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import { NextComponentType } from 'next';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
+import LanguageManager from '@utils/LanguageManager';
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }) => {
   const [queryClient] = React.useState(
@@ -36,7 +37,9 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          <LanguageManager>
+            <Component {...pageProps} />
+          </LanguageManager>
         </Hydrate>
 
         {/* dev tools only local */}

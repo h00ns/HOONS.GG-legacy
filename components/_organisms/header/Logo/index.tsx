@@ -1,0 +1,32 @@
+import styled from '@emotion/styled';
+
+/**
+ *  Components
+ */
+//  atoms
+import NextLink from '@components/_atoms/NextLink';
+import Text from '@components/_atoms/Text';
+
+//  constants
+import { TextSize } from '@constants/atoms/TextSize';
+import { primary, white } from '@styles/Colors';
+
+type Props = {
+  isHomeTop: boolean;
+};
+
+const LogoWrapper = styled.div`
+  cursor: pointer;
+`;
+
+export default function Logo({ isHomeTop }: Props) {
+  return (
+    <NextLink href={'/'}>
+      <LogoWrapper>
+        <Text size={TextSize.SH1} color={isHomeTop ? white : primary.gray}>
+          Hoon.gg
+        </Text>
+      </LogoWrapper>
+    </NextLink>
+  );
+}

@@ -2,10 +2,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
-/**
- *  Components
- */
-//  atoms
+//  components
 import Button from '@components/_atoms/Button';
 import Text from '@components/_atoms/Text';
 
@@ -52,7 +49,7 @@ export default function MainSection() {
         <ButtonWrapper>
           <Link href="/search">
             <a>
-              <Button label="서비스 이용하기" />
+              <Button label={t('main.button')} />
             </a>
           </Link>
         </ButtonWrapper>

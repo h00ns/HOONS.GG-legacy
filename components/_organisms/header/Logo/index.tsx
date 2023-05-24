@@ -24,7 +24,7 @@ export default function Logo({ isHomeTop }: Props) {
     <NextLink href={'/'}>
       <LogoWrapper>
         <Text size={TextSize.SH1} color={isHomeTop ? white : primary.gray}>
-          Hoon.gg
+          HOONS.GG
         </Text>
       </LogoWrapper>
     </NextLink>

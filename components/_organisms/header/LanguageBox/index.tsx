@@ -28,7 +28,7 @@ export default function LanguageBox({ isHomeTop }: Props) {
   const [openModal, setOpenModal] = useState(false);
 
   const handleOpenModal = () => {
-    setOpenModal(true);
+    setOpenModal((prev) => !prev);
   };
   const handleCloseModal = () => {
     setOpenModal(false);

@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import { ForwardedRef, forwardRef } from 'react';
 
 //  components
-import Text from '@components/_atoms/Text';
+import Typography from '@components/_atoms/Typography';
 
 //  constants
 import { gray, primary, white } from '@styles/Colors';
-import { TextSize } from '@constants/atoms/TextSize';
+import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 import { Language } from '@recoil/language';
@@ -61,14 +61,14 @@ const LanguageModal = ({ openModal }: Props, ref: ForwardedRef<HTMLDivElement>) 
   return (
     <Layout openModal={openModal} ref={ref}>
       <LanguageItem onClick={() => handleLanguageSet(Language.KO)}>
-        <Text size={TextSize.SH3} color={locale === Language.KO ? primary.blue : gray.gray5}>
+        <Typography size={TypoSize.SH3} color={locale === Language.KO ? primary.blue : gray.gray5}>
           한국어
-        </Text>
+        </Typography>
       </LanguageItem>
       <LanguageItem onClick={() => handleLanguageSet(Language.EN)}>
-        <Text size={TextSize.SH3} color={locale === Language.EN ? primary.blue : gray.gray5}>
+        <Typography size={TypoSize.SH3} color={locale === Language.EN ? primary.blue : gray.gray5}>
           English
-        </Text>
+        </Typography>
       </LanguageItem>
     </Layout>
   );

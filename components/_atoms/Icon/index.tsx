@@ -1,4 +1,4 @@
-import { IconSize } from '@constants/atoms/IconSize';
+import { IconSize } from '@constants/atoms/Icon';
 import { IconName, icons } from './icons';
 
 type Props = {

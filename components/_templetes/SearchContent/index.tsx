@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const Layout = styled.div``;
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   display: flex;
   column-gap: 12px;
 `;
@@ -33,9 +33,13 @@ export default function SearchContent() {
 
   return (
     <Layout>
-      <SearchBox>
+      <SearchBox
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleFormSubmit();
+        }}>
         <TextInput name="form" value={form} onChange={handleFormChange} />
-        <Button label="클릭" onClick={handleFormSubmit} />
+        <Button label="클릭" />
       </SearchBox>
     </Layout>
   );

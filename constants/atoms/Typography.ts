@@ -1,4 +1,4 @@
-export enum TextSize {
+export enum TypoSize {
   SH1 = 'sh1',
   SH2 = 'sh2',
   SH3 = 'sh3',

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 //  components
 import DefaultLayout from '@components/layouts/DefaultLayouts';
-import SearchContent from '@components/_organisms/service/SearchContent';
+import SearchContent from '@components/_templetes/SearchContent';
 
 //  constants
 import { mq } from '@utils/style';

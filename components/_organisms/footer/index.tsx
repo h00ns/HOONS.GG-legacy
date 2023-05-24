@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import NextLink from '@components/_atoms/NextLink';
 
 //  components
-import Text from '@components/_atoms/Text';
+import Typography from '@components/_atoms/Typography';
 
 //  constants
 import { mq } from '@utils/style';
-import { TextSize } from '@constants/atoms/TextSize';
+import { TypoSize } from '@constants/atoms/Typography';
 import { Shadow } from '@styles/Shadow';
 import { gray } from '@styles/Colors';
 import { GITHUB, SNS, VELOG } from '@constants/routes/routes';
@@ -52,39 +52,39 @@ export default function Footer() {
     <Layout>
       <Content>
         <FooterBlock>
-          <Text size={TextSize.SH1}>HOONS.GG</Text>
-          <Text size={TextSize.B4} color={gray.gray7}>
+          <Typography size={TypoSize.SH1}>HOONS.GG</Typography>
+          <Typography size={TypoSize.B4} color={gray.gray7}>
             궁금하신 점은 언제나 아래의 연락처 혹은 이메일로 연락 바랍니다.
-          </Text>
-          <Text size={TextSize.B3} color={gray.gray7}>
+          </Typography>
+          <Typography size={TypoSize.B3} color={gray.gray7}>
             <Bold>Phone</Bold> : 010-5240-5583
-          </Text>
-          <Text size={TextSize.B3} color={gray.gray7}>
+          </Typography>
+          <Typography size={TypoSize.B3} color={gray.gray7}>
             <Bold>Email</Bold> : 01052405583a@gmail.com
-          </Text>
+          </Typography>
         </FooterBlock>
         <FooterBlock>
-          <Text size={TextSize.SH1}>Github</Text>
+          <Typography size={TypoSize.SH1}>Github</Typography>
           <NextLink href={GITHUB} blank>
-            <Text size={TextSize.B4} color={gray.gray7}>
+            <Typography size={TypoSize.B4} color={gray.gray7}>
               Visit
-            </Text>
+            </Typography>
           </NextLink>
         </FooterBlock>
         <FooterBlock>
-          <Text size={TextSize.SH1}>Velog</Text>
+          <Typography size={TypoSize.SH1}>Velog</Typography>
           <NextLink href={VELOG} blank>
-            <Text size={TextSize.B4} color={gray.gray7}>
+            <Typography size={TypoSize.B4} color={gray.gray7}>
               Visit
-            </Text>
+            </Typography>
           </NextLink>
         </FooterBlock>
         <FooterBlock>
-          <Text size={TextSize.SH1}>SNS</Text>
+          <Typography size={TypoSize.SH1}>SNS</Typography>
           <NextLink href={SNS} blank>
-            <Text size={TextSize.B4} color={gray.gray7}>
+            <Typography size={TypoSize.B4} color={gray.gray7}>
               Visit
-            </Text>
+            </Typography>
           </NextLink>
         </FooterBlock>
       </Content>

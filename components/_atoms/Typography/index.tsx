@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { useGetTextSize } from '@hooks/atoms/useGetTextSize';
 import { primary } from '@styles/Colors';
-import { TextSize } from '@constants/atoms/TextSize';
+import { TypoSize } from '@constants/atoms/Typography';
+import { useGetTypoSize } from '@hooks/atoms/useGetTypoSize';
 
 type Props = {
-  readonly size: TextSize;
+  readonly size: TypoSize;
   readonly color?: string;
   readonly children?: React.ReactNode;
 };
@@ -15,8 +15,8 @@ const Layout = styled.div`
   letter-spacing: -2%;
 `;
 
-export default function Text({ size, color = primary.gray, children }: Props) {
-  const [fontWeight, fontSize] = useGetTextSize(size);
+export default function Typography({ size, color = primary.gray, children }: Props) {
+  const [fontWeight, fontSize] = useGetTypoSize(size);
 
   return <Layout style={{ fontWeight, fontSize, color }}>{children}</Layout>;
 }

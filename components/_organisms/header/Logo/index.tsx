@@ -5,11 +5,12 @@ import styled from '@emotion/styled';
  */
 //  atoms
 import NextLink from '@components/_atoms/NextLink';
-import Text from '@components/_atoms/Text';
+import Typography from '@components/_atoms/Typography';
 
 //  constants
-import { TextSize } from '@constants/atoms/TextSize';
+import { TypoSize } from '@constants/atoms/Typography';
 import { primary, white } from '@styles/Colors';
+import { HOME } from '@constants/routes/routes';
 
 type Props = {
   isHomeTop: boolean;
@@ -21,11 +22,11 @@ const LogoWrapper = styled.div`
 
 export default function Logo({ isHomeTop }: Props) {
   return (
-    <NextLink href={'/'}>
+    <NextLink href={HOME}>
       <LogoWrapper>
-        <Text size={TextSize.SH1} color={isHomeTop ? white : primary.gray}>
-          Hoon.gg
-        </Text>
+        <Typography size={TypoSize.SH1} color={isHomeTop ? white : primary.gray}>
+          HOONS.GG
+        </Typography>
       </LogoWrapper>
     </NextLink>
   );

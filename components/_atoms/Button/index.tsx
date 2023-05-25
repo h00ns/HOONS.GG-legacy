@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
-import Text from '@components/_atoms/Text';
-import { TextSize } from '@constants/atoms/TextSize';
+import Typography from '@components/_atoms/Typography';
+import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { primary } from '@styles/Colors';
+import { ButtonType } from '@constants/atoms/Button';
 
 type Props = {
   readonly width?: string;
   readonly label?: string;
+  readonly type?: ButtonType;
   readonly onClick?: () => void;
 };
 
@@ -14,8 +16,9 @@ type CssProps = {
   readonly width?: string;
 };
 
-const Layout = styled.div<CssProps>`
+const Layout = styled.button<CssProps>`
   padding: 12px 23px;
+  border: none;
   border-radius: ${Radius.MEDIUM};
   background-color: ${primary.blue};
   cursor: pointer;
@@ -32,7 +35,7 @@ const Layout = styled.div<CssProps>`
 export default function Button({ width, label, onClick }: Props) {
   return (
     <Layout width={width} onClick={onClick}>
-      <Text size={TextSize.SH3}>{label}</Text>
+      <Typography size={TypoSize.SH3}>{label}</Typography>
     </Layout>
   );
 }

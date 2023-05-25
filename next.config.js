@@ -10,12 +10,16 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: ['ddragon.leagueoflegends.com']
+  },
   webpack(config, { webpack }) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"]
     });
+
 
     config.resolve = {
       alias: {

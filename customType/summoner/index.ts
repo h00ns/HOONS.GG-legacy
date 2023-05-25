@@ -12,3 +12,7 @@ export interface getSummonerInfoByNameData {
     summonerLevel: number;
   }
 }
+
+export interface getSummonerDetailPayload {
+  id: string;
+}

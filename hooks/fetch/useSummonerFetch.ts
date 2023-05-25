@@ -1,5 +1,5 @@
-import { getSummonerInfoByNameApi } from "@apis/summoner"
-import { getSummonerInfoByNamePayload } from "@customType/summoner"
+import { getSummonerDetailApi, getSummonerInfoByNameApi } from "@apis/summoner"
+import { getSummonerDetailPayload, getSummonerInfoByNamePayload } from "@customType/summoner"
 import { AxiosError } from "axios"
 import { useQuery } from "react-query"
 
@@ -8,8 +8,8 @@ import { useQuery } from "react-query"
  *  @function useGetSummonerInfoByNameFetch
  *  @param {string} summonerName 소환사 이름
  */
-export const useGetSummonerInfoByNameFetch = ({ summonerName}:getSummonerInfoByNamePayload) => {
-  const { data: getSummonerInfoByNameData } = useQuery(
+export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoByNamePayload) => {
+  const { data: getSummonerInfoByNameData, isLoading, isError } = useQuery(
     ['getSummonerInfo', summonerName],
     async () => {
       const result = await getSummonerInfoByNameApi({ summonerName });
@@ -21,9 +21,40 @@ export const useGetSummonerInfoByNameFetch = ({ summonerName}:getSummonerInfoByN
       onError: (err: AxiosError) => {
         console.log(err)
       }
-  })
+    })
+  
+    const isCustomLoading = (!getSummonerInfoByNameData || isLoading) && !isError;
 
   return {
-    getSummonerInfoByNameData
+    getSummonerInfoByNameData,
+    isCustomLoading
+  }
+}
+
+/**
+ *  소환사 id로 detail 정보 가져오기 Fetch
+ *  @function useGetSummonerDetailFetch
+ *  @param {string} id id
+ */
+export const useGetSummonerDetailFetch = ({ id }: getSummonerDetailPayload) => {
+  const { data: getSummonerDetailData, isLoading, isError } = useQuery(
+    ['getSummonerDetail', id],
+    async () => {
+      const result = await getSummonerDetailApi({ id });
+      return result.data.data;
+    },
+    {
+      enabled: !!id,
+      keepPreviousData: true,
+      onError: (err: AxiosError) => {
+        console.log(err)
+      }
+    })
+  
+    const isCustomLoading = (!getSummonerDetailData || isLoading) && !isError;
+
+  return {
+    getSummonerDetailData,
+    isCustomLoading
   }
 }

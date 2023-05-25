@@ -1,22 +1,31 @@
-import SearchContent from '@components/_organisms/service/SearchContent';
-import DefaultLayout from '@components/layouts/DefaultLayouts';
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Head from 'next/head';
+import styled from '@emotion/styled';
+
+//  components
+import DefaultLayout from '@components/layouts/DefaultLayouts';
+import SearchContent from '@components/_templetes/SearchContent';
+
+//  constants
+import { mq } from '@utils/style';
 
 const SearchWrapper = styled.div`
   width: 100%;
-  max-width: 528px;
-  padding: 256px 40px;
+  max-width: 728px;
+  padding: 210px 40px;
   margin: 0 auto;
+
+  ${mq['md']} {
+    padding: 210px 20px;
+  }
 `;
 
 const Search: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Hoon.gg - 검색</title>
-        <meta name="title" content="Hoon.gg - 검색" />
+        <title>HOONS.GG - 검색</title>
+        <meta name="title" content="HOONS.GG - 검색" />
       </Head>
       <DefaultLayout>
         <SearchWrapper>

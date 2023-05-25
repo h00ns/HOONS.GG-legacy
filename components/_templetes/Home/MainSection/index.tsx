@@ -4,10 +4,10 @@ import { useTranslation } from 'next-i18next';
 
 //  components
 import Button from '@components/_atoms/Button';
-import Text from '@components/_atoms/Text';
+import Typography from '@components/_atoms/Typography';
 
 //  constants
-import { TextSize } from '@constants/atoms/TextSize';
+import { TypoSize } from '@constants/atoms/Typography';
 import { mq } from '@utils/style';
 
 const Layout = styled.div`
@@ -44,7 +44,7 @@ export default function MainSection() {
   return (
     <Layout>
       <Content>
-        <Text size={TextSize.SH1}>{t('main.title')}</Text>
+        <Typography size={TypoSize.SH1}>{t('main.title')}</Typography>
 
         <ButtonWrapper>
           <Link href="/search">

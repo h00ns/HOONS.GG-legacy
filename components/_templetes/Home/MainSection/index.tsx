@@ -39,7 +39,7 @@ const ButtonWrapper = styled.div`
 `;
 
 export default function MainSection() {
-  const { t, i18n } = useTranslation('home');
+  const { t } = useTranslation('home');
 
   return (
     <Layout>

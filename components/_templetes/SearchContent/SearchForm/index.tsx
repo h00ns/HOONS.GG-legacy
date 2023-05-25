@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import TextInput from '@components/_atoms/TextInput';
@@ -22,6 +23,7 @@ const Layout = styled.form`
 
 export default function SearchForm() {
   const router = useRouter();
+  const { t } = useTranslation('search');
 
   const [form, setForm] = useState('');
 
@@ -43,7 +45,7 @@ export default function SearchForm() {
         handleFormSubmit();
       }}>
       <TextInput name="form" value={form} onChange={handleFormChange} />
-      <Button label="검색" />
+      <Button label={t('search-button')} />
     </Layout>
   );
 }

@@ -46,7 +46,7 @@ export default function SummonerInfoCard({ data }: Props) {
       <ProfileWrapper>
         <ProfileIconWrapper>
           <Image
-            src={`https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/${profileIconId}.png `}
+            src={`https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/${profileIconId}.png`}
             layout="fill"
             alt="profileIcon"
           />

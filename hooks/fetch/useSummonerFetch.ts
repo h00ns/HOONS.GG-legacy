@@ -9,7 +9,7 @@ import { useQuery } from "react-query"
  *  @param {string} summonerName 소환사 이름
  */
 export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoByNamePayload) => {
-  const { data: getSummonerInfoByNameData, isLoading, isError } = useQuery(
+  const { data: getSummonerInfoByNameData } = useQuery(
     ['getSummonerInfo', summonerName],
     async () => {
       const result = await getSummonerInfoByNameApi({ summonerName });
@@ -23,11 +23,9 @@ export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoB
       }
     })
   
-    const isCustomLoading = (!getSummonerInfoByNameData || isLoading) && !isError;
 
   return {
     getSummonerInfoByNameData,
-    isCustomLoading
   }
 }
 
@@ -37,7 +35,7 @@ export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoB
  *  @param {string} id id
  */
 export const useGetSummonerDetailFetch = ({ id }: getSummonerDetailPayload) => {
-  const { data: getSummonerDetailData, isLoading, isError } = useQuery(
+  const { data: getSummonerDetailData } = useQuery(
     ['getSummonerDetail', id],
     async () => {
       const result = await getSummonerDetailApi({ id });
@@ -51,10 +49,7 @@ export const useGetSummonerDetailFetch = ({ id }: getSummonerDetailPayload) => {
       }
     })
   
-    const isCustomLoading = (!getSummonerDetailData || isLoading) && !isError;
-
   return {
     getSummonerDetailData,
-    isCustomLoading
   }
 }

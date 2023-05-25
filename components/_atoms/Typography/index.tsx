@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+
+//  constants
 import { primary } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 import { useGetTypoSize } from '@hooks/atoms/useGetTypoSize';

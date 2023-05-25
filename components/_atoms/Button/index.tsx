@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
+
+//  components
 import Typography from '@components/_atoms/Typography';
+
+//  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { primary } from '@styles/Colors';
@@ -17,6 +21,7 @@ type CssProps = {
 };
 
 const Layout = styled.button<CssProps>`
+  width: ${({ width }) => width};
   padding: 12px 23px;
   border: none;
   border-radius: ${Radius.MEDIUM};

@@ -11,7 +11,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['ddragon.leagueoflegends.com']
+    domains: ['ddragon.leagueoflegends.com', 'raw.communitydragon.org']
   },
   webpack(config, { webpack }) {
     config.module.rules.push({

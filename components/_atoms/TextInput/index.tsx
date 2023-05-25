@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
+
+//  components
+
+//  constants
 import { gray, white } from '@styles/Colors';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
+
 type Props = {
   readonly name?: string;
   readonly value?: string;

@@ -1,5 +1,5 @@
 export interface getSummonerInfoByNamePayload  {
-  summonerName: string;
+  summonerName?: string;
 }
 
 export interface getSummonerInfoByNameData {
@@ -14,5 +14,23 @@ export interface getSummonerInfoByNameData {
 }
 
 export interface getSummonerDetailPayload {
-  id: string;
+  id?: string;
+}
+
+export interface getSummonerDetailData {
+  data: {
+    freshBlood: boolean;
+    hotStreak: boolean;
+    inactive: boolean;
+    leagueId: string;
+    leaguePoints: number;
+    losses: number;
+    queueType: string;
+    rank: string;
+    summonerId: string;
+    summonerName: string;
+    tier: string;
+    veteran: boolean;
+    wins: number;
+  }
 }

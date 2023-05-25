@@ -1,4 +1,4 @@
-import { apiUrlComriler } from "..";
+import { apiUrlComriler } from "../../index";
 
 // 소환사 id로 detail 정보 가져오기 API
 export default async function handler(request, response) {

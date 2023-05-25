@@ -10,6 +10,7 @@ type Props = {
 
 const Layout = styled.div<{ isHome?: boolean }>`
   width: 100%;
+  min-width: 320px;
   min-height: 100vh;
 
   display: flex;

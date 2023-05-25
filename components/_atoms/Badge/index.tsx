@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
-import { primary, white } from '@styles/Colors';
+
+//  components
 import Typography from '../Typography';
+
+//  constants
+import { primary, white } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 

@@ -1,13 +1,9 @@
 import styled from '@emotion/styled';
-<<<<<<< HEAD
 
 //  components
 import Typography from '@components/_atoms/Typography';
 
 //  constants
-=======
-import Typography from '@components/_atoms/Typography';
->>>>>>> main
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { primary } from '@styles/Colors';

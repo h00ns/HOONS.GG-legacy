@@ -10,7 +10,7 @@ type Props = {
   readonly children?: React.ReactNode;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   width: 100%;
   padding: 24px;
   border-radius: ${Radius.MEDIUM};
@@ -19,5 +19,5 @@ const Layout = styled.div`
 `;
 
 export default function Card({ height, children }: Props) {
-  return <Layout style={{ height }}>{children}</Layout>;
+  return <Component style={{ height }}>{children}</Component>;
 }

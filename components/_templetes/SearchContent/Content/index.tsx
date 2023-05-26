@@ -27,10 +27,11 @@ export default function Content() {
   return (
     <>
       <Layout>
+        {/* only Summoner Data */}
         {summonerData && (
           <>
             <SummonerInfoCard data={summonerData} />
-            <TierCardList />
+            <TierCardList data={summonerDetailData} />
           </>
         )}
       </Layout>

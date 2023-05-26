@@ -11,7 +11,7 @@ type Props = {
   readonly children?: React.ReactNode;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   word-break: keep-all;
   white-space: pre-line;
   letter-spacing: -2%;
@@ -20,5 +20,5 @@ const Layout = styled.div`
 export default function Typography({ size, color = primary.gray, children }: Props) {
   const [fontWeight, fontSize] = useGetTypoSize(size);
 
-  return <Layout style={{ fontWeight, fontSize, color }}>{children}</Layout>;
+  return <Component style={{ fontWeight, fontSize, color }}>{children}</Component>;
 }

@@ -12,6 +12,7 @@ import { SEARCH } from '@constants/routes/routes';
 import Typography from '@components/_atoms/Typography';
 import { TypoSize } from '@constants/atoms/Typography';
 import Divider from '@components/_atoms/Divider';
+import LanguageNavItem from './LanguageNavItem';
 
 type Props = {
   handleCloseMenu: () => void;
@@ -75,16 +76,15 @@ export default function MobileMenu({ handleCloseMenu }: Props) {
         <NextLink href={SEARCH}>
           <NavItem>
             <Icon name="search" stroke={primary.gray} />
-            <Typography size={TypoSize.SH2}>서비스 이용하기</Typography>
+            <Typography size={TypoSize.SH3}>서비스 이용하기</Typography>
           </NavItem>
         </NextLink>
 
         <Divider />
 
-        <NavItem>
-          <Icon name="global" fill={primary.gray} />
-          <Typography size={TypoSize.SH2}>언어설정</Typography>
-        </NavItem>
+        <LanguageNavItem />
+
+        <Divider />
       </Content>
     </Layout>
   );

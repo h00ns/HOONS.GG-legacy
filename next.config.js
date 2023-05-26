@@ -11,11 +11,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-<<<<<<< HEAD
     domains: ['ddragon.leagueoflegends.com', 'raw.communitydragon.org']
-=======
-    domains: ['ddragon.leagueoflegends.com']
->>>>>>> main
   },
   webpack(config, { webpack }) {
     config.module.rules.push({

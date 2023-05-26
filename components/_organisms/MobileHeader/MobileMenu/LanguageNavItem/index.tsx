@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Icon from '@components/_atoms/Icon';
@@ -8,7 +10,6 @@ import Typography from '@components/_atoms/Typography';
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { blue, gray, primary } from '@styles/Colors';
-import { useRouter } from 'next/router';
 import { Language } from '@recoil/language';
 
 const Layout = styled.div``;
@@ -25,6 +26,7 @@ const Title = styled.div`
 const LeftBox = styled.div`
   display: flex;
   column-gap: 12px;
+  align-items: center;
 `;
 
 const Content = styled.div`
@@ -50,6 +52,7 @@ const LanguageItem = styled.div<{ select?: boolean }>`
 `;
 
 export default function LanguageNavItem() {
+  const { t } = useTranslation('common');
   const router = useRouter();
   const locale = router.locale;
 
@@ -69,7 +72,7 @@ export default function LanguageNavItem() {
       <Title onClick={handleChangeIsOpen}>
         <LeftBox>
           <Icon name="global" fill={primary.gray} />
-          <Typography size={TypoSize.SH3}>언어설정</Typography>
+          <Typography size={TypoSize.SH3}>{t('menu2')}</Typography>
         </LeftBox>
 
         <Icon name={isOpen ? 'arrow-up' : 'arrow-down'} fill={gray.gray6} />

@@ -1,18 +1,18 @@
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Logo from '../Logo';
 import Icon from '@components/_atoms/Icon';
+import NextLink from '@components/_atoms/NextLink';
+import Typography from '@components/_atoms/Typography';
+import Divider from '@components/_atoms/Divider';
+import LanguageNavItem from './LanguageNavItem';
 
 //  constants
 import { primary, white } from '@styles/Colors';
-import { IconSize } from '@constants/atoms/Icon';
-import NextLink from '@components/_atoms/NextLink';
 import { SEARCH } from '@constants/routes/routes';
-import Typography from '@components/_atoms/Typography';
 import { TypoSize } from '@constants/atoms/Typography';
-import Divider from '@components/_atoms/Divider';
-import LanguageNavItem from './LanguageNavItem';
 
 type Props = {
   handleCloseMenu: () => void;
@@ -61,6 +61,8 @@ const NavItem = styled.div`
 `;
 
 export default function MobileMenu({ handleCloseMenu }: Props) {
+  const { t } = useTranslation('common');
+
   return (
     <Layout>
       <Head>
@@ -76,7 +78,7 @@ export default function MobileMenu({ handleCloseMenu }: Props) {
         <NextLink href={SEARCH}>
           <NavItem>
             <Icon name="search" stroke={primary.gray} />
-            <Typography size={TypoSize.SH3}>서비스 이용하기</Typography>
+            <Typography size={TypoSize.SH3}>{t('menu1')}</Typography>
           </NavItem>
         </NextLink>
 

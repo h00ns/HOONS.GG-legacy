@@ -9,7 +9,7 @@ import Typography from '@components/_atoms/Typography';
 import { TypoSize } from '@constants/atoms/Typography';
 import Image from 'next/image';
 import Divider from '@components/_atoms/Divider';
-import { gray } from '@styles/Colors';
+import { blue, gray, red } from '@styles/Colors';
 import { getWinRate } from '@utils/winRates';
 import { useTranslation } from 'next-i18next';
 
@@ -43,6 +43,11 @@ const DescriptionWrapper = styled.div`
   justify-content: center;
 `;
 
+const RecordWrapper = styled.div`
+  display: flex;
+  column-gap: 4px;
+`;
+
 export default function TierCard({ title, data }: Props) {
   const { t } = useTranslation('search');
 
@@ -72,11 +77,17 @@ export default function TierCard({ title, data }: Props) {
                 <Typography size={TypoSize.B3} color={gray.gray6}>
                   {leaguePoints} LP
                 </Typography>
-                <Typography size={TypoSize.B5} color={gray.gray6}>
-                  {`${wins}${t('win')} `}
-                  {`${losses}${t('lose')} `}
-                  {`${t('win-rate')} ${WIN_RATE}%`}
-                </Typography>
+                <RecordWrapper>
+                  <Typography size={TypoSize.SH5} color={blue.blue3}>
+                    {`${wins}${t('win')} `}
+                  </Typography>
+                  <Typography size={TypoSize.SH5} color={red.red3}>
+                    {`${losses}${t('lose')} `}
+                  </Typography>
+                  <Typography size={TypoSize.SH5} color={gray.gray6}>
+                    {`${t('win-rate')} ${WIN_RATE}%`}
+                  </Typography>
+                </RecordWrapper>
               </>
             ) : (
               // only UNRANKED

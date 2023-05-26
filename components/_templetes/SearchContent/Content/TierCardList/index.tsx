@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import TierCard from './TierCard';
@@ -27,17 +28,19 @@ const Layout = styled.div`
 `;
 
 export default function TierCardList({ data }: Props) {
+  const { t } = useTranslation('search');
+
   const soloData = data?.filter((item) => item.queueType === RankType.SOLO)[0];
   const flexData = data?.filter((item) => item.queueType === RankType.FLEX)[0];
 
   return (
     <Layout>
       {/* Solo Rank */}
-      <TierCard title="솔로랭크" data={soloData} />
+      <TierCard title={t('solo-rank')} data={soloData} />
       {/* Solo Rank end */}
 
       {/* 5x5 Rank */}
-      <TierCard title="자유랭크" data={flexData} />
+      <TierCard title={t('flex-rank')} data={flexData} />
       {/* 5x5 Rank end */}
     </Layout>
   );

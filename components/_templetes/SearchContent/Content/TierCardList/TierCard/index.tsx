@@ -10,6 +10,8 @@ import { TypoSize } from '@constants/atoms/Typography';
 import Image from 'next/image';
 import Divider from '@components/_atoms/Divider';
 import { gray } from '@styles/Colors';
+import { getWinRate } from '@utils/winRates';
+import { useTranslation } from 'next-i18next';
 
 type Props = {
   title: string;
@@ -42,11 +44,14 @@ const DescriptionWrapper = styled.div`
 `;
 
 export default function TierCard({ title, data }: Props) {
-  const { tier, rank, leaguePoints, wins, losses } = data ?? {};
-  const avg = Math.floor((wins! / (wins! + losses!)) * 100);
+  const { t } = useTranslation('search');
 
-  const UN_RANK = 'UNRANK';
-  const TierImageUrl = `/assets/images/tier/${tier ?? UN_RANK}.png`;
+  const { tier, rank, leaguePoints, wins, losses } = data ?? {};
+
+  const total = wins && losses ? wins + losses : undefined;
+  const WIN_RATE = getWinRate(wins, total);
+
+  const TierImageUrl = `/assets/images/tier/${tier ?? 'UNRANKED'}.png`;
 
   return (
     <Card>
@@ -68,7 +73,9 @@ export default function TierCard({ title, data }: Props) {
                   {leaguePoints} LP
                 </Typography>
                 <Typography size={TypoSize.B5} color={gray.gray6}>
-                  {wins}승 {losses}패 승률 {avg}%
+                  {`${wins}${t('win')} `}
+                  {`${losses}${t('lose')} `}
+                  {`${t('win-rate')} ${WIN_RATE}%`}
                 </Typography>
               </>
             ) : (

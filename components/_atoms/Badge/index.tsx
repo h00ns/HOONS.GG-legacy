@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 //  components
-import Typography from '../Typography';
 
 //  constants
 import { primary, white } from '@styles/Colors';

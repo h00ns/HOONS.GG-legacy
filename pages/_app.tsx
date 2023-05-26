@@ -31,7 +31,8 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({ Compo
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="HOONS.GG" />
-        <meta property="og:description" content="HOONS.GG" />
+        <meta property="og:description" content="HOONS.GG - League Of Legend Search Platform" />
+        <meta property="og:image" content="https://hoons.site/assets/images/lol-og.jpeg" />
         {/* Open Graph end */}
       </Head>
       <QueryClientProvider client={queryClient}>

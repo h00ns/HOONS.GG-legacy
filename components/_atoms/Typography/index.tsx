@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+
+//  constants
 import { primary } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 import { useGetTypoSize } from '@hooks/atoms/useGetTypoSize';
@@ -9,7 +11,7 @@ type Props = {
   readonly children?: React.ReactNode;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   word-break: keep-all;
   white-space: pre-line;
   letter-spacing: -2%;
@@ -18,5 +20,5 @@ const Layout = styled.div`
 export default function Typography({ size, color = primary.gray, children }: Props) {
   const [fontWeight, fontSize] = useGetTypoSize(size);
 
-  return <Layout style={{ fontWeight, fontSize, color }}>{children}</Layout>;
+  return <Component style={{ fontWeight, fontSize, color }}>{children}</Component>;
 }

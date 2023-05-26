@@ -12,6 +12,7 @@ import { Shadow } from '@styles/Shadow';
 import { useCheckScrollToTop } from '@hooks/interaction/useCheckScrollToTop';
 
 const Layout = styled.div<{ isHomeTop: boolean }>`
+  min-width: 320px;
   position: fixed;
   top: 0;
   width: 100%;

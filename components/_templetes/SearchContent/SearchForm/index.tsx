@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import TextInput from '@components/_atoms/TextInput';
@@ -11,17 +12,19 @@ import { mq } from '@utils/style';
 
 const Layout = styled.form`
   margin-top: 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 100px;
   column-gap: 12px;
 
   ${mq['sm']} {
-    flex-direction: column;
+    grid-template-columns: none;
     row-gap: 8px;
   }
 `;
 
 export default function SearchForm() {
   const router = useRouter();
+  const { t } = useTranslation('search');
 
   const [form, setForm] = useState('');
 
@@ -42,8 +45,8 @@ export default function SearchForm() {
         e.preventDefault();
         handleFormSubmit();
       }}>
-      <TextInput name="form" value={form} onChange={handleFormChange} />
-      <Button label="검색" />
+      <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
+      <Button label={t('search-button')} />
     </Layout>
   );
 }

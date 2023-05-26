@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
+
+//  components
+
+//  constants
 import { gray, white } from '@styles/Colors';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
+
 type Props = {
   readonly name?: string;
   readonly value?: string;
@@ -9,7 +14,7 @@ type Props = {
   readonly onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Layout = styled.input`
+const Component = styled.input`
   width: 100%;
   height: 48px;
   padding: 0 16px;
@@ -25,5 +30,5 @@ const Layout = styled.input`
 `;
 
 export default function TextInput({ name, value, placeholder, onChange }: Props) {
-  return <Layout name={name} value={value} placeholder={placeholder} onChange={onChange} />;
+  return <Component name={name} value={value} placeholder={placeholder} onChange={onChange} />;
 }

@@ -1,22 +1,26 @@
-import Badge from '@components/_atoms/Badge';
-import { getSummonerInfoByNameData } from '@customType/summoner';
 import styled from '@emotion/styled';
-import { white } from '@styles/Colors';
+import Image from 'next/image';
+
+//  components
+import Badge from '@components/_atoms/Badge';
+import Card from '@components/_atoms/Card';
+import Typography from '@components/_atoms/Typography';
+
+//  constants
+import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
-import Image from 'next/image';
+
+//  types
+import { getSummonerInfoByNameData } from '@customType/summoner';
 
 type Props = {
   data: getSummonerInfoByNameData['data'];
 };
 
-const Layout = styled.div`
-  padding: 24px;
-  background: ${white};
-  border-radius: ${Radius.MEDIUM};
-  box-shadow: ${Shadow.MEDIUM};
-
+const Content = styled.div`
   display: flex;
+  column-gap: 24px;
 `;
 
 const ProfileWrapper = styled.div`
@@ -28,6 +32,7 @@ const ProfileIconWrapper = styled.div`
   height: 100px;
   position: relative;
   border-radius: ${Radius.LARGE};
+  box-shadow: ${Shadow.MEDIUM};
   overflow: hidden;
 `;
 
@@ -41,20 +46,28 @@ const BadgeWrapper = styled.div`
 export default function SummonerInfoCard({ data }: Props) {
   const { name, profileIconId, summonerLevel } = data;
 
+  /**
+   *  @todo
+   *  localStorage 즐겨찾기
+   */
+
   return (
-    <Layout>
-      <ProfileWrapper>
-        <ProfileIconWrapper>
-          <Image
-            src={`https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/${profileIconId}.png `}
-            layout="fill"
-            alt="profileIcon"
-          />
-        </ProfileIconWrapper>
-        <BadgeWrapper>
-          <Badge label={summonerLevel} />
-        </BadgeWrapper>
-      </ProfileWrapper>
-    </Layout>
+    <Card>
+      <Content>
+        <ProfileWrapper>
+          <ProfileIconWrapper>
+            <Image
+              src={`https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${profileIconId}.jpg`}
+              layout="fill"
+              alt="profileIcon"
+            />
+          </ProfileIconWrapper>
+          <BadgeWrapper>
+            <Badge label={summonerLevel} />
+          </BadgeWrapper>
+        </ProfileWrapper>
+        <Typography size={TypoSize.SH2}>{name}</Typography>
+      </Content>
+    </Card>
   );
 }

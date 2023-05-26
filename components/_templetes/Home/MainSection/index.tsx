@@ -9,6 +9,7 @@ import Typography from '@components/_atoms/Typography';
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { mq } from '@utils/style';
+import { SEARCH } from '@constants/routes/routes';
 
 const Layout = styled.div`
   height: 1080px;
@@ -47,7 +48,7 @@ export default function MainSection() {
         <Typography size={TypoSize.SH1}>{t('main.title')}</Typography>
 
         <ButtonWrapper>
-          <Link href="/search">
+          <Link href={SEARCH}>
             <a>
               <Button label={t('main.button')} />
             </a>

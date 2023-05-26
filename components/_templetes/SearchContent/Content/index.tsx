@@ -7,7 +7,9 @@ import SummonerInfoCard from './SummonerInfoCard';
 //  constants
 
 //  hooks
-import { useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
+import { useGetSummonerDetailFetch, useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
+import Loading from '@components/_templetes/Loading';
+import TierCardList from './TierCardList';
 
 const Layout = styled.div`
   margin-top: 48px;
@@ -18,6 +20,21 @@ export default function Content() {
   const { name: summonerName } = router.query as { name: string };
 
   const { getSummonerInfoByNameData: summonerData } = useGetSummonerInfoByNameFetch({ summonerName });
+  const { id } = summonerData ?? {};
 
-  return <Layout>{summonerData && <SummonerInfoCard data={summonerData} />}</Layout>;
+  const { getSummonerDetailData: summonerDetailData } = useGetSummonerDetailFetch({ id });
+
+  return (
+    <>
+      <Layout>
+        {/* only Summoner Data */}
+        {summonerData && (
+          <>
+            <SummonerInfoCard data={summonerData} />
+            <TierCardList data={summonerDetailData} />
+          </>
+        )}
+      </Layout>
+    </>
+  );
 }

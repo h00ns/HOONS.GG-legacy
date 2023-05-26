@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import DefaultLayout from '@components/layouts/DefaultLayouts';
@@ -8,6 +9,7 @@ import SearchContent from '@components/_templetes/SearchContent';
 
 //  constants
 import { mq } from '@utils/style';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const SearchWrapper = styled.div`
   width: 100%;
@@ -21,11 +23,13 @@ const SearchWrapper = styled.div`
 `;
 
 const Search: NextPage = () => {
+  const { t } = useTranslation('search');
+
   return (
     <>
       <Head>
-        <title>HOONS.GG - 검색</title>
-        <meta name="title" content="HOONS.GG - 검색" />
+        <title>{t('meta-title')}</title>
+        <meta name="title" content={t('meta-title')} />
       </Head>
       <DefaultLayout>
         <SearchWrapper>
@@ -37,5 +41,11 @@ const Search: NextPage = () => {
     </>
   );
 };
+
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common', 'search'])),
+  },
+});
 
 export default Search;

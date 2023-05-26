@@ -1,5 +1,5 @@
 import API from "@apis/axios"
-import { getSummonerInfoByNameData, getSummonerInfoByNamePayload } from "@customType/summoner"
+import { getSummonerDetailData, getSummonerDetailPayload, getSummonerInfoByNameData, getSummonerInfoByNamePayload } from "@customType/summoner"
 import { AxiosError, AxiosResponse } from "axios"
 
 /**
@@ -8,4 +8,12 @@ import { AxiosError, AxiosResponse } from "axios"
  */
 export const getSummonerInfoByNameApi = ({summonerName}:getSummonerInfoByNamePayload): Promise<AxiosResponse<getSummonerInfoByNameData, AxiosError>> => {
   return API.get(`/api/summoner/${summonerName}`)
+}
+
+/**
+ *  소환사 id로 detail 정보 가져오기 API
+ *  @function getSummonerDetailApi
+ */
+export const getSummonerDetailApi = ({id}: getSummonerDetailPayload): Promise<AxiosResponse<getSummonerDetailData, AxiosError>>  => {
+  return API.get(`/api/summoner/detail/${id}`)
 }

@@ -8,10 +8,10 @@ type Props = {
 };
 
 export default function Icon({ size = IconSize.SMALL, name, fill }: Props) {
-  const IconComponent = icons[name] || null;
+  const Component = icons[name] || null;
 
   const width = size;
   const height = size;
 
-  return <IconComponent style={{ width, height, fill }} />;
+  return <Component style={{ width, height, fill }} />;
 }

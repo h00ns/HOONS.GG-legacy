@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
+
+//  components
 import Typography from '@components/_atoms/Typography';
+
+//  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { primary } from '@styles/Colors';
@@ -16,7 +20,8 @@ type CssProps = {
   readonly width?: string;
 };
 
-const Layout = styled.button<CssProps>`
+const Component = styled.button<CssProps>`
+  width: ${({ width }) => width};
   padding: 12px 23px;
   border: none;
   border-radius: ${Radius.MEDIUM};
@@ -34,8 +39,8 @@ const Layout = styled.button<CssProps>`
 
 export default function Button({ width, label, onClick }: Props) {
   return (
-    <Layout width={width} onClick={onClick}>
+    <Component width={width} onClick={onClick}>
       <Typography size={TypoSize.SH3}>{label}</Typography>
-    </Layout>
+    </Component>
   );
 }

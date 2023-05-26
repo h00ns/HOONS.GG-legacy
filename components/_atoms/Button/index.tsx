@@ -20,7 +20,7 @@ type CssProps = {
   readonly width?: string;
 };
 
-const Layout = styled.button<CssProps>`
+const Component = styled.button<CssProps>`
   width: ${({ width }) => width};
   padding: 12px 23px;
   border: none;
@@ -39,8 +39,8 @@ const Layout = styled.button<CssProps>`
 
 export default function Button({ width, label, onClick }: Props) {
   return (
-    <Layout width={width} onClick={onClick}>
+    <Component width={width} onClick={onClick}>
       <Typography size={TypoSize.SH3}>{label}</Typography>
-    </Layout>
+    </Component>
   );
 }

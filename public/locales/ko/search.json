@@ -1,4 +1,5 @@
 {
   "meta-title": "HOONS.GG - 검색",
-  "search-button": "검색"
+  "search-button": "검색",
+  "placeholder": "소환사명..."
 }

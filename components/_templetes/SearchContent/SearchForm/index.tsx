@@ -12,11 +12,12 @@ import { mq } from '@utils/style';
 
 const Layout = styled.form`
   margin-top: 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 100px;
   column-gap: 12px;
 
   ${mq['sm']} {
-    flex-direction: column;
+    grid-template-columns: none;
     row-gap: 8px;
   }
 `;
@@ -44,7 +45,7 @@ export default function SearchForm() {
         e.preventDefault();
         handleFormSubmit();
       }}>
-      <TextInput name="form" value={form} onChange={handleFormChange} />
+      <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
       <Button label={t('search-button')} />
     </Layout>
   );

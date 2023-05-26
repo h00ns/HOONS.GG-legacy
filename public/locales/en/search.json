@@ -1,4 +1,5 @@
 {
   "meta-title": "HOONS.GG - Search",
-  "search-button": "Search"
+  "search-button": "Search",
+  "placeholder": "Summoner Name..."
 }

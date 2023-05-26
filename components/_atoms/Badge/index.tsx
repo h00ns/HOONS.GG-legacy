@@ -12,7 +12,7 @@ type Props = {
   label: string | number;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   padding: 4px 8px;
   background: ${primary.gray};
   border-radius: ${Radius.MEDIUM};
@@ -20,10 +20,10 @@ const Layout = styled.div`
 
 export default function Badge({ label }: Props) {
   return (
-    <Layout>
+    <Component>
       <Typography size={TypoSize.SH5} color={white}>
         {label}
       </Typography>
-    </Layout>
+    </Component>
   );
 }

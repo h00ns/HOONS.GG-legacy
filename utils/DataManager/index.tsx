@@ -7,6 +7,10 @@ type Props = {
   readonly children: React.ReactNode;
 };
 
+/**
+ *  버전 리스트 가져와서 최신 버전 set
+ *  set한 최신 버전을 기반으로 최신 챔피언 데이터 set !
+ */
 export default function DataManager({ children }: Props) {
   const [version, setVersion] = useRecoilState(versionState);
   const { getVersionsData: versionsData } = useGetVersionsFetch();
@@ -14,7 +18,6 @@ export default function DataManager({ children }: Props) {
   const [champions, setChampions] = useRecoilState(championsState);
   const { getChampionsData: championsData } = useGetChampionsFetch({ version });
 
-  // 최신 버전으로 recoil set
   useEffect(() => {
     if (!version && versionsData) {
       const latest = versionsData[0];
@@ -26,11 +29,7 @@ export default function DataManager({ children }: Props) {
     if (!Object.keys(champions).length && championsData) {
       setChampions(championsData);
     }
-  }, [championsData]);
-
-  useEffect(() => {
-    console.log(champions);
-  }, [champions]);
+  }, [championsData, champions, setChampions]);
 
   return <>{children}</>;
 }

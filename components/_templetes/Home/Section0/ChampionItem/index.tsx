@@ -31,7 +31,7 @@ const ChampionName = styled.div`
 
 export default function ChampionItem({ id }: Props) {
   const championData = useGetChampionDataById(id);
-  const { full: image } = championData.image;
+  const { full: image } = championData?.image ?? {};
 
   return (
     <Layout>

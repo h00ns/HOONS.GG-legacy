@@ -10,7 +10,7 @@ import Typography from '@components/_atoms/Typography';
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { blue, gray, primary } from '@styles/Colors';
-import { Language } from '@recoil/language';
+import { Language } from '@constants/language';
 
 const Layout = styled.div``;
 

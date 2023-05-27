@@ -10,7 +10,7 @@ import { gray, primary, white } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
-import { Language } from '@recoil/language';
+import { Language } from '@constants/language';
 
 type Props = {
   openModal: boolean;

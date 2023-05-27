@@ -33,6 +33,7 @@ export default function ChampionItem({ id }: Props) {
   const championData = useGetChampionDataById(id);
   const { full: image } = championData?.image ?? {};
 
+  if (!image) return null;
   return (
     <Layout>
       <ChampionImageWrapper>

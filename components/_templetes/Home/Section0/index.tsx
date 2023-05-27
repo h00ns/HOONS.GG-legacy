@@ -34,7 +34,7 @@ export default function Section0() {
 
   return (
     <Content>
-      <Typography size={TypoSize.H5}>{t('section0-title')}</Typography>
+      <Typography size={TypoSize.H5}>{t('section0.title')}</Typography>
 
       <ChampionList>
         {freeChampionIds?.map((id) => (

@@ -1,7 +1,9 @@
 {
   "main": {
     "title": "HOONS.GG is the League of Legends full search platform",
-    "button": "Using the service",
-    "section0-title": "Rotation champion of the week"
+    "button": "Using the service"
+  },
+  "section0": {
+    "title": "Rotation champion of the week"
   }
 }

@@ -10,10 +10,11 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { Shadow } from '@styles/Shadow';
 import { gray } from '@styles/Colors';
 import { GITHUB, SNS, VELOG } from '@constants/routes/routes';
+import Image from 'next/image';
+import { Radius } from '@styles/Radius';
 
 const Layout = styled.div`
   width: 100%;
-  min-height: 200px;
   padding: 24px;
   background: ${gray.gray1};
   box-shadow: ${Shadow.MEDIUM};
@@ -40,11 +41,20 @@ const Content = styled.div`
 const FooterBlock = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
+  row-gap: 24px;
 `;
 
-const Bold = styled.span`
-  font-weight: bold;
+const ImageList = styled.div`
+  display: flex;
+  column-gap: 12px;
+`;
+
+const ImageWrapper = styled.div`
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: ${Radius.MAXIMUM};
+  overflow: hidden;
 `;
 
 export default function Footer() {
@@ -53,39 +63,28 @@ export default function Footer() {
       <Content>
         <FooterBlock>
           <Typography size={TypoSize.SH1}>HOONS.GG</Typography>
-          <Typography size={TypoSize.B4} color={gray.gray7}>
-            궁금하신 점은 언제나 아래의 연락처 혹은 이메일로 연락 바랍니다.
+          <ImageList>
+            <NextLink href={GITHUB} blank>
+              <ImageWrapper>
+                <Image src={'/assets/images/icons/Github.png'} layout="fill" alt="github" />
+              </ImageWrapper>
+            </NextLink>
+            <NextLink href={SNS} blank>
+              <ImageWrapper>
+                <Image src={'/assets/images/icons/Insta.png'} layout="fill" alt="github" />
+              </ImageWrapper>
+            </NextLink>
+            <NextLink href={VELOG} blank>
+              <ImageWrapper>
+                <Image src={'/assets/images/icons/Velog.png'} layout="fill" alt="github" />
+              </ImageWrapper>
+            </NextLink>
+          </ImageList>
+          <Typography size={TypoSize.B5} color={gray.gray6}>
+            © 2023 HOONS.GG. HOONS.GG isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot
+            Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot
+            Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
           </Typography>
-          <Typography size={TypoSize.B3} color={gray.gray7}>
-            <Bold>Phone</Bold> : 010-5240-5583
-          </Typography>
-          <Typography size={TypoSize.B3} color={gray.gray7}>
-            <Bold>Email</Bold> : 01052405583a@gmail.com
-          </Typography>
-        </FooterBlock>
-        <FooterBlock>
-          <Typography size={TypoSize.SH1}>Github</Typography>
-          <NextLink href={GITHUB} blank>
-            <Typography size={TypoSize.B4} color={gray.gray7}>
-              Visit
-            </Typography>
-          </NextLink>
-        </FooterBlock>
-        <FooterBlock>
-          <Typography size={TypoSize.SH1}>Velog</Typography>
-          <NextLink href={VELOG} blank>
-            <Typography size={TypoSize.B4} color={gray.gray7}>
-              Visit
-            </Typography>
-          </NextLink>
-        </FooterBlock>
-        <FooterBlock>
-          <Typography size={TypoSize.SH1}>SNS</Typography>
-          <NextLink href={SNS} blank>
-            <Typography size={TypoSize.B4} color={gray.gray7}>
-              Visit
-            </Typography>
-          </NextLink>
         </FooterBlock>
       </Content>
     </Layout>

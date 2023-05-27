@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { useIsTablet } from '@hooks/responsive/useIsMobile';
 
 //  components
-import Footer from '@components/_organisms/Footer';
 import Header from '@components/_organisms/Header';
+import MobileHeader from '@components/_organisms/MobileHeader';
+import Footer from '@components/_organisms/Footer';
 
 //  constants
 import { white } from '@styles/Colors';
-import MobileHeader from '@components/_organisms/MobileHeader';
 
 type Props = {
   readonly children: React.ReactNode;

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 //  components
 import DefaultLayout from '@components/layouts/DefaultLayouts';
 import Head from 'next/head';
-import ErrorContent from '@components/_templetes/ErrorContent';
+import ErrorTemplate from '@components/_templetes/ErrorTemplate';
 
 // constants
 import { mq } from '@utils/style';
@@ -29,9 +29,9 @@ const Error: NextPage = () => {
       </Head>
       <DefaultLayout>
         <ErrorWrapper>
-          {/* Error Content */}
-          <ErrorContent />
-          {/* Error Content end */}
+          {/* Error Template */}
+          <ErrorTemplate />
+          {/* Error Template end */}
         </ErrorWrapper>
       </DefaultLayout>
     </>

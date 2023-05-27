@@ -12,12 +12,11 @@ import { mq } from '@utils/style';
 
 const Layout = styled.form`
   margin-top: 24px;
-  display: grid;
-  grid-template-columns: 1fr 100px;
+  display: flex;
   column-gap: 12px;
 
   ${mq['sm']} {
-    grid-template-columns: none;
+    flex-direction: column;
     row-gap: 8px;
   }
 `;

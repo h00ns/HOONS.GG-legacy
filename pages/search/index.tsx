@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 
 //  components
 import DefaultLayout from '@components/layouts/DefaultLayouts';
-import SearchContent from '@components/_templetes/SearchContent';
+import SearchTemplate from '@components/_templetes/SearchTemplate';
 
 //  constants
 import { mq } from '@utils/style';
@@ -33,9 +33,9 @@ const Search: NextPage = () => {
       </Head>
       <DefaultLayout>
         <SearchWrapper>
-          {/* SearchContent */}
-          <SearchContent />
-          {/* SearchContent end */}
+          {/* Search Template */}
+          <SearchTemplate />
+          {/* Search Template end */}
         </SearchWrapper>
       </DefaultLayout>
     </>

@@ -1,7 +1,9 @@
+// 소환사 이름으로 정보 가져오기 payload
 export interface getSummonerInfoByNamePayload  {
   summonerName?: string;
 }
 
+// 소환사 이름으로 정보 가져오기 response type
 export interface getSummonerInfoByNameData {
   data: {
     accoundId: string;
@@ -13,10 +15,12 @@ export interface getSummonerInfoByNameData {
   }
 }
 
+// 소환사 id로 detail 정보 가져오기 payload
 export interface getSummonerDetailPayload {
   id?: string;
 }
 
+// 소환사 id로 detail 정보 가져오기 response type
 export interface getSummonerDetailData {
   data: {
     freshBlood: boolean;

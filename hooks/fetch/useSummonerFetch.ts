@@ -32,7 +32,7 @@ export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoB
 /**
  *  소환사 id로 detail 정보 가져오기 Fetch
  *  @function useGetSummonerDetailFetch
- *  @param {string} id id
+ *  @param {string} id 소환사 고유 id값
  */
 export const useGetSummonerDetailFetch = ({ id }: getSummonerDetailPayload) => {
   const { data: getSummonerDetailData } = useQuery(

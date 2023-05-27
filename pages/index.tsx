@@ -21,15 +21,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const HomeWrapper = styled.div``;
 
 const Section = styled.section<{ backgroundGray?: boolean }>`
-  padding: 160px 0;
+  padding: 160px 20px;
   position: relative;
 
   ${mq['md']} {
-    padding: 120px 0;
+    padding: 120px 20px;
   }
 
   ${mq['sm']} {
-    padding: 80px 0;
+    padding: 80px 20px;
   }
 
   ${({ backgroundGray }) =>

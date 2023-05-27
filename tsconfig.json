@@ -51,6 +51,6 @@
       ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/index.js", "pages/api/summoner/[name].js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/index.js", "pages/api/summoner/[name].js", "utils/champion.js"],
   "exclude": ["node_modules"]
 }

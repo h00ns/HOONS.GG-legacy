@@ -9,9 +9,13 @@ import Button from '@components/_atoms/Button';
 
 //  constants
 import { mq } from '@utils/style';
+import FavoritesBox from './FavoritesBox';
 
 const Layout = styled.form`
   margin-top: 24px;
+`;
+
+const SearchBox = styled.div`
   display: flex;
   column-gap: 12px;
 
@@ -44,8 +48,11 @@ export default function SearchForm() {
         e.preventDefault();
         handleFormSubmit();
       }}>
-      <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
-      <Button label={t('search-button')} />
+      <SearchBox>
+        <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
+        <Button label={t('search-button')} />
+      </SearchBox>
+      <FavoritesBox />
     </Layout>
   );
 }

@@ -16,10 +16,10 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 import { gray, red } from '@styles/Colors';
+import { FAVORITES, getCookie, setCookie } from '@utils/cookie';
 
 //  types
 import { getSummonerInfoByNameData } from '@customType/summoner';
-import { FAVORITES, getCookie, setCookie } from '@utils/cookie';
 
 type Props = {
   data: getSummonerInfoByNameData['data'];
@@ -73,13 +73,8 @@ export default function SummonerInfoCard({ data }: Props) {
   const { t } = useTranslation('search');
   const { name, profileIconId, summonerLevel, revisionDate } = data;
 
-  const favorites: string[] = getCookie(FAVORITES);
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  // 즐겨찾기 초기값 set
-  useEffect(() => {
-    setIsFavorite(favorites.includes(name));
-  }, [favorites, setIsFavorite, name]);
+  const favorites: string[] = getCookie(FAVORITES) || [];
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(name));
 
   // 즐겨찾기 추가, 제거
   const handleChangeIsLike = () => {

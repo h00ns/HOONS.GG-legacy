@@ -6,7 +6,7 @@ import Typography from '@components/_atoms/Typography';
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
-import { primary } from '@styles/Colors';
+import { primary, white } from '@styles/Colors';
 import { ButtonType } from '@constants/atoms/Button';
 
 type Props = {
@@ -40,7 +40,9 @@ const Component = styled.button<CssProps>`
 export default function Button({ width, label, onClick }: Props) {
   return (
     <Component width={width} onClick={onClick}>
-      <Typography size={TypoSize.SH3}>{label}</Typography>
+      <Typography size={TypoSize.SH3} color={white}>
+        {label}
+      </Typography>
     </Component>
   );
 }

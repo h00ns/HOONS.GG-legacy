@@ -6,5 +6,7 @@
   "flex-rank": "Ranked Flex",
   "win": "W",
   "lose": "L",
-  "win-rate": "Rate"
+  "win-rate": "Rate",
+  "update-button": "Update",
+  "recent-access": "Recent Access"
 }

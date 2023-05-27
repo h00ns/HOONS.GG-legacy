@@ -6,5 +6,7 @@
   "flex-rank": "자유랭크",
   "win": "승",
   "lose": "패",
-  "win-rate": "승률"
+  "win-rate": "승률",
+  "update-button": "업데이트",
+  "recent-access": "최근접속"
 }

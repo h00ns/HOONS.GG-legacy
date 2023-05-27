@@ -8,7 +8,6 @@ import SummonerInfoCard from './SummonerInfoCard';
 
 //  hooks
 import { useGetSummonerDetailFetch, useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
-import Loading from '@components/_templetes/Loading';
 import TierCardList from './TierCardList';
 
 const Layout = styled.div`

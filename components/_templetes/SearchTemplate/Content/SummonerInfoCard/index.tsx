@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Time } from '@utils/time';
 import { useTranslation } from 'next-i18next';
 
@@ -19,6 +19,7 @@ import { gray, red } from '@styles/Colors';
 
 //  types
 import { getSummonerInfoByNameData } from '@customType/summoner';
+import { FAVORITES, getCookie, setCookie } from '@utils/cookie';
 
 type Props = {
   data: getSummonerInfoByNameData['data'];
@@ -72,10 +73,22 @@ export default function SummonerInfoCard({ data }: Props) {
   const { t } = useTranslation('search');
   const { name, profileIconId, summonerLevel, revisionDate } = data;
 
-  const [isLike, setIsLike] = useState(false);
+  const favorites: string[] = getCookie(FAVORITES);
+  const [isFavorite, setIsFavorite] = useState(false);
 
+  // 즐겨찾기 초기값 set
+  useEffect(() => {
+    setIsFavorite(favorites.includes(name));
+  }, [favorites, setIsFavorite, name]);
+
+  // 즐겨찾기 추가, 제거
   const handleChangeIsLike = () => {
-    setIsLike((prev) => !prev);
+    const updateFavorites = isFavorite
+      ? favorites.filter((summonerName) => summonerName !== name)
+      : [...favorites, name];
+
+    setCookie(FAVORITES, updateFavorites);
+    setIsFavorite((prev) => !prev);
   };
 
   return (
@@ -98,7 +111,11 @@ export default function SummonerInfoCard({ data }: Props) {
           <SummonerName>
             <Typography size={TypoSize.SH2}>{name}</Typography>
             <IconWrapper onClick={handleChangeIsLike}>
-              {isLike ? <Icon name="favorite" fill={red.red3} /> : <Icon name="favorite-empty" stroke={gray.gray7} />}
+              {isFavorite ? (
+                <Icon name="favorite" fill={red.red3} />
+              ) : (
+                <Icon name="favorite-empty" stroke={gray.gray7} />
+              )}
             </IconWrapper>
           </SummonerName>
 

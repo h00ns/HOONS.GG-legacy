@@ -35,7 +35,7 @@ export default function SearchForm() {
 
   // search submit
   const handleFormSubmit = () => {
-    router.push(`/search?name=${form}`, undefined, { shallow: true });
+    router.push(`/search?name=${form}`);
   };
 
   return (

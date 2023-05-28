@@ -3,15 +3,17 @@ import { useRouter } from 'next/router';
 
 //  components
 import SummonerInfoCard from './SummonerInfoCard';
-
-//  constants
+import TierCardList from './TierCardList';
+import MatchCardList from './MatchCardList';
 
 //  hooks
-import { useGetSummonerDetailFetch, useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
-import TierCardList from './TierCardList';
+import { useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
 
 const Layout = styled.div`
-  margin-top: 48px;
+  margin-top: 24px;
+
+  display: grid;
+  row-gap: 8px;
 `;
 
 export default function Content() {
@@ -19,21 +21,18 @@ export default function Content() {
   const { name: summonerName } = router.query as { name: string };
 
   const { getSummonerInfoByNameData: summonerData } = useGetSummonerInfoByNameFetch({ summonerName });
-  const { id } = summonerData ?? {};
+  const { id, puuid } = summonerData ?? {};
 
-  const { getSummonerDetailData: summonerDetailData } = useGetSummonerDetailFetch({ id });
-
-  return (
-    <>
+  // only Summoner Data
+  if (summonerData) {
+    return (
       <Layout>
-        {/* only Summoner Data */}
-        {summonerData && (
-          <>
-            <SummonerInfoCard data={summonerData} key={id} />
-            <TierCardList data={summonerDetailData} />
-          </>
-        )}
+        <SummonerInfoCard data={summonerData} key={id} />
+        <TierCardList id={id} />
+        <MatchCardList puuid={puuid} />
       </Layout>
-    </>
-  );
+    );
+  } else {
+    return null;
+  }
 }

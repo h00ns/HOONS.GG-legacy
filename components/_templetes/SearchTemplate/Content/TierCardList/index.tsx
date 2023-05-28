@@ -8,16 +8,14 @@ import TierCard from './TierCard';
 import { mq } from '@utils/style';
 
 //  types
-import { getSummonerDetailData } from '@customType/summoner';
-import { RankType } from '@constants/data';
+import { RankType } from '@constants/service';
+import { useGetSummonerDetailFetch } from '@hooks/fetch/useSummonerFetch';
 
 type Props = {
-  data?: getSummonerDetailData['data'];
+  id?: string;
 };
 
 const Layout = styled.div`
-  margin-top: 8px;
-
   display: flex;
   column-gap: 12px;
 
@@ -27,11 +25,13 @@ const Layout = styled.div`
   }
 `;
 
-export default function TierCardList({ data }: Props) {
+export default function TierCardList({ id }: Props) {
   const { t } = useTranslation('search');
 
-  const soloData = data?.filter((item) => item.queueType === RankType.SOLO)[0];
-  const flexData = data?.filter((item) => item.queueType === RankType.FLEX)[0];
+  const { getSummonerDetailData: summonerDetailData } = useGetSummonerDetailFetch({ id });
+
+  const soloData = summonerDetailData?.find((item) => item.queueType === RankType.SOLO);
+  const flexData = summonerDetailData?.find((item) => item.queueType === RankType.FLEX);
 
   return (
     <Layout>

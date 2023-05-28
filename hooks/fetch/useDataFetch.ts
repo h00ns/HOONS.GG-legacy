@@ -27,8 +27,9 @@ export const useGetVersionsFetch = () => {
 }
 
 /**
- *  최신버전 챔피언 데이터 가져오기 Fetch
+ *  Ver. 챔피언 데이터 가져오기 Fetch
  *  @function useGetChampionsFetch
+ *  @param {string} version version
  */
 export const useGetChampionsFetch = ({ version }: getChampionsPayload) => {
   const { data: getChampionsData } = useQuery(

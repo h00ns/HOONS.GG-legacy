@@ -1,3 +1,4 @@
+// 최신버전 챔피언 데이터 가져오기 response data type
 export interface ChampionDataType {
   version: string;
   id: string;

@@ -1,4 +1,4 @@
-// 최신 버전 챔피언 데이터 가져오기 API
+// Ver. 챔피언 데이터 가져오기 API
 export default async function handler(request, response) {
   const { version } = request.query;
 

@@ -22,27 +22,24 @@ const ChampionImageWrapper = styled.div`
   box-shadow: ${Shadow.MEDIUM};
 `;
 
-const ChampionName = styled.div`
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-`;
-
 export default function ChampionItem({ id }: Props) {
   const championData = useGetChampionDataById(id);
   const { full: image } = championData?.image ?? {};
 
-  if (!image) return null;
-  return (
-    <Layout>
-      <ChampionImageWrapper>
-        <Image
-          src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${image}`}
-          layout="fill"
-          alt={image}
-        />
-      </ChampionImageWrapper>
-    </Layout>
-  );
+  if (image) {
+    // only Image
+    return (
+      <Layout>
+        <ChampionImageWrapper>
+          <Image
+            src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${image}`}
+            layout="fill"
+            alt={image}
+          />
+        </ChampionImageWrapper>
+      </Layout>
+    );
+  } else {
+    return null;
+  }
 }

@@ -8,7 +8,7 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { gray, red } from '@styles/Colors';
 
 //  hooks
-import { useGetKdaAvg } from '@hooks/service/useGetKdaAvg';
+import { useGetKdaAvg } from '@components/_templetes/SearchTemplate/Hooks/useGetKdaAvg';
 
 //  types
 import { ParticipantsType } from '@customType/match';

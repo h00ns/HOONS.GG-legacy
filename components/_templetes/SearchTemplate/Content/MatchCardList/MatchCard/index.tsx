@@ -13,6 +13,7 @@ import { Shadow } from '@styles/Shadow';
 import { useGetMatchDetailFetch } from '@hooks/fetch/useMatchFetch';
 import SpellBox from './SpellBox';
 import MatchInfoBox from './MatchInfoBox';
+import { mq } from '@utils/style';
 
 type Props = {
   matchId: string;
@@ -50,8 +51,8 @@ export default function MatchCard({ matchId, puuid }: Props) {
     <Layout win={win}>
       <MatchInfoBox data={detailData} win={win} />
       <ChampionBox data={myData} />
+      <SpellBox data={myData} />
       <KdaBox data={myData} />
-      <SpellBox />
     </Layout>
   );
 }

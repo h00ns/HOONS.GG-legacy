@@ -13,9 +13,11 @@ import { getMatchDetailData } from '@customType/match';
 import { QueueType } from '@constants/service';
 
 //  hooks
-import { useGetQueueType } from '@hooks/service/useGetQueueType';
-import { useGetGameTime } from '@hooks/service/useGetGameTime';
+
+//  utils
 import { Time } from '@utils/time';
+import { useGetQueueType } from '@components/_templetes/SearchTemplate/Hooks/useGetQueueType';
+import { useGetGameTime } from '@components/_templetes/SearchTemplate/Hooks/useGetGameTime';
 
 type Props = {
   win?: boolean;

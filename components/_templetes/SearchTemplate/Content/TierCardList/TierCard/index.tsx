@@ -13,7 +13,7 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { blue, gray, red } from '@styles/Colors';
 
 //  utils
-import { useGetWinRate } from '@hooks/service/useGetWinRate';
+import { useGetWinRate } from '@components/_templetes/SearchTemplate/Hooks/useGetWinRate';
 
 type Props = {
   title: string;

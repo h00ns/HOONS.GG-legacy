@@ -26,8 +26,8 @@ const SearchBox = styled.div`
 `;
 
 export default function SearchForm() {
-  const router = useRouter();
   const { t } = useTranslation('search');
+  const router = useRouter();
 
   const [form, setForm] = useState('');
 

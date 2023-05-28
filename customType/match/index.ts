@@ -33,7 +33,7 @@ export interface getMatchDetailData {
       gameVersion: string;
       mapId: number;
       platformId: string;
-      queueId: string;
+      queueId: number;
       tournamentCode: string;
       teams: {
         bans: {

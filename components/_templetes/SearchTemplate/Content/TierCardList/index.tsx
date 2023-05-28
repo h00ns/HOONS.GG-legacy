@@ -8,7 +8,7 @@ import TierCard from './TierCard';
 import { mq } from '@utils/style';
 
 //  types
-import { RankType } from '@constants/data';
+import { RankType } from '@constants/service';
 import { useGetSummonerDetailFetch } from '@hooks/fetch/useSummonerFetch';
 
 type Props = {

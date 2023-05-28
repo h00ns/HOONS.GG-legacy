@@ -1,15 +1,13 @@
 import styled from '@emotion/styled';
 
 //  components
-import Typography from '@components/_atoms/Typography';
 import ChampionBox from './ChampionBox';
 import KdaBox from './KdaBox';
 
 //  constants
-import { blue, gray, red } from '@styles/Colors';
+import { blue, gray, primary, red } from '@styles/Colors';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
-import { TypoSize } from '@constants/atoms/Typography';
 
 //  hooks
 import { useGetMatchDetailFetch } from '@hooks/fetch/useMatchFetch';
@@ -25,6 +23,7 @@ const Layout = styled.div<{ win?: boolean }>`
   padding: 8px;
 
   background: ${blue.blue2};
+  border-left: 5px solid ${primary.blue};
   border-radius: ${Radius.MEDIUM};
   box-shadow: ${Shadow.MEDIUM};
 
@@ -36,18 +35,20 @@ const Layout = styled.div<{ win?: boolean }>`
     !win &&
     `
     background: ${red.red1};
+    border-left: 5px solid ${red.red3};
   `}
 `;
 
 export default function MatchCard({ matchId, puuid }: Props) {
   const { getMatchDetailData: detailData } = useGetMatchDetailFetch({ matchId });
   const myData = detailData?.info.participants.find((data) => data.puuid === puuid);
-  const { win, spell1Casts, spell2Casts, spell3Casts, spell4Casts } = myData ?? {};
+  const { win } = myData ?? {};
 
-  if (!myData) return null;
+  if (!detailData || !myData) return null;
   return (
+    // only Data
     <Layout win={win}>
-      <MatchInfoBox data={myData} />
+      <MatchInfoBox data={detailData} win={win} />
       <ChampionBox data={myData} />
       <KdaBox data={myData} />
       <SpellBox />

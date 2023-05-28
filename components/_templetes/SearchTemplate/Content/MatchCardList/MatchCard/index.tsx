@@ -51,9 +51,11 @@ const FlexColumnBox = styled.div`
   display: flex;
   column-gap: 12px;
   align-items: center;
+  justify-content: center;
 `;
 
 const FlexRowBox = styled.div`
+  width: 230px;
   display: flex;
   flex-direction: column;
   row-gap: 12px;
@@ -62,7 +64,7 @@ const FlexRowBox = styled.div`
 export default function MatchCard({ matchId, puuid }: Props) {
   const { getMatchDetailData: detailData } = useGetMatchDetailFetch({ matchId });
   const myData = detailData?.info.participants.find((data) => data.puuid === puuid);
-  const { win } = myData ?? {};
+  const { win, summonerName: myName } = myData ?? {};
 
   if (!detailData || !myData) return null;
   return (
@@ -91,7 +93,7 @@ export default function MatchCard({ matchId, puuid }: Props) {
       </FlexColumnBox>
       <FlexColumnBox>
         {/* Player Box */}
-        <PlayerBox data={detailData} />
+        <PlayerBox data={detailData} myName={myName} />
         {/* Player Box end */}
       </FlexColumnBox>
     </Layout>

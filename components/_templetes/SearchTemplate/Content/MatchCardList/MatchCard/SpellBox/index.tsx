@@ -26,7 +26,6 @@ export default function SpellBox({ data }: Props) {
   const subPerk = perks.styles?.find((item) => item.description === 'subStyle');
   const subPerkId = subPerk?.style!;
 
-  console.log(primaryPerk, subPerk);
   return (
     <Layout>
       <Spell spellId={summoner1Id} />

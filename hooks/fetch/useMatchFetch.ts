@@ -9,12 +9,13 @@ import { useQuery } from "react-query";
  */
 export const useGetMatchsFetch = ({ puuid }: getMatchsPayload) => {
   const { data: getMatchsData } = useQuery(
-    ['getMatchs'],
+    ['getMatchs', puuid],
     async () => {
       const result = await getMatchsApi({ puuid });
       return result.data.data;
     },
     {
+      enabled: !!puuid,
       onError: (err: AxiosError) => {
         console.log(err)
       }

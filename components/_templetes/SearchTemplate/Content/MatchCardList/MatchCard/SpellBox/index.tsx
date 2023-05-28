@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
-import Image from 'next/image';
+
+//  components
+import Spell from '@components/_atoms/Spell';
+import Rune from '@components/_atoms/Rune';
 
 //  types
 import { ParticipantsType } from '@customType/match';
-import Spell from '@components/_atoms/Spell';
 
 type Props = {
   data: ParticipantsType;
@@ -11,15 +13,26 @@ type Props = {
 
 const Layout = styled.div`
   display: grid;
-  row-gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
 `;
 
 export default function SpellBox({ data }: Props) {
-  const { summoner1Id, summoner2Id } = data ?? {};
+  const { summoner1Id, summoner2Id, perks } = data ?? {};
+
+  const primaryPerk = perks.styles?.find((item) => item.description === 'primaryStyle');
+  const primaryPerkId = primaryPerk?.selections[0].perk!;
+
+  const subPerk = perks.styles?.find((item) => item.description === 'subStyle');
+  const subPerkId = subPerk?.style!;
+
+  console.log(primaryPerk, subPerk);
   return (
     <Layout>
       <Spell spellId={summoner1Id} />
+      <Rune runeId={primaryPerkId} />
       <Spell spellId={summoner2Id} />
+      <Rune runeId={subPerkId} />
     </Layout>
   );
 }

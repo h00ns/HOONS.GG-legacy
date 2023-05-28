@@ -1,5 +1,6 @@
 import { useMemo } from "react"
 
+// 스펠 name return
 export const useGetSpellName = (spellId:number) => {
   const spellName = useMemo(() => {
     switch (spellId) {

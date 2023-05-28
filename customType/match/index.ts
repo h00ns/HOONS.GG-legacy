@@ -63,7 +63,7 @@ export interface getMatchDetailData {
   
 
 export interface ParticipantsType {
-   allInPings: number;
+  allInPings: number;
   assistMePings: number;
   assists: number;
   baitPings: number;
@@ -132,7 +132,7 @@ export interface ParticipantsType {
   onMyWayPings: number;
   participantId: number;
   pentaKills: number;
-  perks: any;
+  perks: PerksType;
   physicalDamageDealt: number;
   physicalDamageDealtToChampions: number;
   physicalDamageTaken: number;
@@ -186,4 +186,22 @@ export interface ParticipantsType {
   wardsKilled: number;
   wardsPlaced: number;
   win: boolean;
+}
+
+export interface PerksType {
+  statPerks: {
+    defense: number;
+    flex: number;
+    offense: number;
+  };
+  styles: {
+    description: string;
+    selections: {
+      perk: number;
+      var1: number;
+      var2: number;
+      var3: number;
+    }[];
+    style: number;
+  }[];
 }

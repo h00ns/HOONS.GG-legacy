@@ -28,6 +28,7 @@ const SearchBox = styled.div`
 export default function SearchForm() {
   const { t } = useTranslation('search');
   const router = useRouter();
+  const { name } = router.query as { name?: string };
 
   const [form, setForm] = useState('');
 
@@ -52,7 +53,7 @@ export default function SearchForm() {
         <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
         <Button label={t('search-button')} />
       </SearchBox>
-      <FavoritesBox />
+      <FavoritesBox key={name} />
     </Layout>
   );
 }

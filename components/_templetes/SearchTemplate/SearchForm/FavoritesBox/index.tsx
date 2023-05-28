@@ -1,17 +1,16 @@
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 //  components
 import Card from '@components/_atoms/Card';
-import Typography from '@components/_atoms/Typography';
 import Icon from '@components/_atoms/Icon';
+import FavoritesUser from './FavoritesUser';
 
 //  constants
-import { TypoSize } from '@constants/atoms/Typography';
 import { IconSize } from '@constants/atoms/Icon';
-import { gray, red } from '@styles/Colors';
+import { red } from '@styles/Colors';
 import { FAVORITES, getCookie } from '@utils/cookie';
-import { useEffect, useState } from 'react';
 
 const Layout = styled.div`
   margin-top: 36px;
@@ -29,23 +28,18 @@ const IconWrapper = styled.div`
   top: -42px;
 `;
 
-const ContentItem = styled.div`
-  padding: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 export default function FavoritesBox() {
   const router = useRouter();
   const { name } = router.query;
 
-  const [favoritesUsers, setFavoritesUsers] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
-    const favorites = getCookie(FAVORITES);
+    const favorites: string[] = getCookie(FAVORITES);
 
-    if (favorites) setFavoritesUsers(favorites);
+    if (favorites) {
+      setFavorites(favorites);
+    }
   }, []);
 
   if (name) {
@@ -59,12 +53,8 @@ export default function FavoritesBox() {
             <IconWrapper>
               <Icon name="favorite" size={IconSize.MEDIUM} fill={red.red3} />
             </IconWrapper>
-            {favoritesUsers.map((userName) => (
-              <ContentItem key={userName}>
-                <Typography size={TypoSize.B3} color={gray.gray6}>
-                  {userName}
-                </Typography>
-              </ContentItem>
+            {favorites.map((userName) => (
+              <FavoritesUser name={userName} favorites={favorites} setFavorites={setFavorites} key={userName} />
             ))}
           </Content>
         </Card>

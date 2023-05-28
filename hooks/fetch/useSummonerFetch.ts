@@ -17,7 +17,7 @@ export const useGetSummonerInfoByNameFetch = ({ summonerName }: getSummonerInfoB
     },
     {
       enabled: !!summonerName,
-      keepPreviousData: true,
+      // keepPreviousData: true,
       onError: (err: AxiosError) => {
         console.log(err)
       }
@@ -43,7 +43,7 @@ export const useGetSummonerDetailFetch = ({ id }: getSummonerDetailPayload) => {
     },
     {
       enabled: !!id,
-      keepPreviousData: true,
+      // keepPreviousData: true,
       onError: (err: AxiosError) => {
         console.log(err)
       }

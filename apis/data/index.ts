@@ -11,8 +11,9 @@ export const getVersionsApi = (): Promise<AxiosResponse<getVersionsData, AxiosEr
 }
 
 /**
- *  최신버전 챔피언 데이터 가져오기 API
+ *  Ver. 챔피언 데이터 가져오기 API
  *  @function getChampionsApi
+ *  @param {string} version version
  */
 export const getChampionsApi = ({ version }: getChampionsPayload): Promise<AxiosResponse<getChampionsData, AxiosError>> => {
   return API.get(`/api/data/champions/${version}`)

@@ -10,7 +10,10 @@ import MatchCardList from './MatchCardList';
 import { useGetSummonerInfoByNameFetch } from '@hooks/fetch/useSummonerFetch';
 
 const Layout = styled.div`
-  margin-top: 48px;
+  margin-top: 24px;
+
+  display: grid;
+  row-gap: 8px;
 `;
 
 export default function Content() {

@@ -17,8 +17,6 @@ type Props = {
 };
 
 const Layout = styled.div`
-  margin-top: 8px;
-
   display: flex;
   column-gap: 12px;
 

@@ -4,7 +4,12 @@
  *  (BE는 형태만 갖춰놓음)
  */
 
-// api url compiler
-export function apiUrlComriler(url) {
+// api base url compiler (kr)
+export function apiUrlCompiler(url) {
   return `${process.env.NEXT_PUBLIC_API_URL}${url}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
+}
+
+// api region url compiler (asia)
+export function apiRegionUrlCompiler(url) {
+  return `${process.env.NEXT_PUBLIC_API_URL_REGION}${url}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
 }

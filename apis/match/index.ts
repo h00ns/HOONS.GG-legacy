@@ -1,5 +1,5 @@
 import API from "@apis/axios"
-import { getMatchDetailPayload, getMatchsData, getMatchsPayload } from "@customType/match"
+import { getMatchDetailData, getMatchDetailPayload, getMatchsData, getMatchsPayload } from "@customType/match"
 import { AxiosError, AxiosResponse } from "axios"
 
 /**
@@ -16,6 +16,6 @@ export const getMatchsApi = ({ puuid }: getMatchsPayload): Promise<AxiosResponse
  *  @function getMatchDetailAPi
  *  @param {string} matchId 매치 id
  */
-export const getMatchDetailApi = ({matchId}: getMatchDetailPayload) => {
+export const getMatchDetailApi = ({matchId}: getMatchDetailPayload): Promise<AxiosResponse<getMatchDetailData, AxiosError>> => {
   return API.get(`/api/match/detail/${matchId}`)
 }

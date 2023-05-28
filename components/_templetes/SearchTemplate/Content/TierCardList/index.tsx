@@ -30,8 +30,8 @@ export default function TierCardList({ id }: Props) {
 
   const { getSummonerDetailData: summonerDetailData } = useGetSummonerDetailFetch({ id });
 
-  const soloData = summonerDetailData?.filter((item) => item.queueType === RankType.SOLO)[0];
-  const flexData = summonerDetailData?.filter((item) => item.queueType === RankType.FLEX)[0];
+  const soloData = summonerDetailData?.find((item) => item.queueType === RankType.SOLO);
+  const flexData = summonerDetailData?.find((item) => item.queueType === RankType.FLEX);
 
   return (
     <Layout>

@@ -13,7 +13,7 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { blue, gray, red } from '@styles/Colors';
 
 //  utils
-import { getWinRate } from '@utils/winRates';
+import { useGetWinRate } from '@hooks/service/useGetWinRate';
 
 type Props = {
   title: string;
@@ -56,7 +56,7 @@ export default function TierCard({ title, data }: Props) {
   const { tier, rank, leaguePoints, wins, losses } = data ?? {};
 
   const total = wins && losses ? wins + losses : undefined;
-  const WIN_RATE = getWinRate(wins, total);
+  const WIN_RATE = useGetWinRate(wins, total);
 
   const TierImageUrl = `/assets/images/tier/${tier ?? 'UNRANKED'}.png`;
 

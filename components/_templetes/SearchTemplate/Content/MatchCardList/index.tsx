@@ -21,7 +21,7 @@ export default function MatchCardList({ puuid }: Props) {
   return (
     <Layout>
       {matchsData?.map((matchId) => (
-        <MatchCard matchId={matchId} key={matchId} />
+        <MatchCard matchId={matchId} puuid={puuid} key={matchId} />
       ))}
     </Layout>
   );

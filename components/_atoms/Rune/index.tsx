@@ -23,7 +23,6 @@ const Layout = styled.div`
 export default function Rune({ runeId }: Props) {
   const runeIconUrl = useGetRuneIconUrl(runeId);
 
-  console.log(runeIconUrl);
   return (
     <Layout>
       <Image

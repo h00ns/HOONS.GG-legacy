@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 //  types
 import { ParticipantsType } from '@customType/match';
-import Image from 'next/image';
+
+//  constants
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 

@@ -1,15 +1,22 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import { useState } from 'react';
+import { Time } from '@utils/time';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Badge from '@components/_atoms/Badge';
 import Card from '@components/_atoms/Card';
 import Typography from '@components/_atoms/Typography';
+import Button from '@components/_atoms/Button';
+import Icon from '@components/_atoms/Icon';
 
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
+import { gray, red } from '@styles/Colors';
+import { FAVORITES, getCookie, setCookie } from '@utils/cookie';
 
 //  types
 import { getSummonerInfoByNameData } from '@customType/summoner';
@@ -43,13 +50,41 @@ const BadgeWrapper = styled.div`
   transform: translate(-50%, 0%);
 `;
 
-export default function SummonerInfoCard({ data }: Props) {
-  const { name, profileIconId, summonerLevel } = data;
+const RightBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+`;
 
-  /**
-   *  @todo
-   *  localStorage 즐겨찾기
-   */
+const SummonerName = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+`;
+
+const IconWrapper = styled.div`
+  cursor: pointer;
+
+  position: relative;
+  top: 2px;
+`;
+
+export default function SummonerInfoCard({ data }: Props) {
+  const { t } = useTranslation('search');
+  const { name, profileIconId, summonerLevel, revisionDate } = data;
+
+  const favorites: string[] = getCookie(FAVORITES) || [];
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(name));
+
+  // 즐겨찾기 추가, 제거
+  const handleChangeIsLike = () => {
+    const updateFavorites = isFavorite
+      ? favorites.filter((summonerName) => summonerName !== name)
+      : [...favorites, name];
+
+    setCookie(FAVORITES, updateFavorites);
+    setIsFavorite((prev) => !prev);
+  };
 
   return (
     <Card>
@@ -66,7 +101,25 @@ export default function SummonerInfoCard({ data }: Props) {
             <Badge label={summonerLevel} />
           </BadgeWrapper>
         </ProfileWrapper>
-        <Typography size={TypoSize.SH2}>{name}</Typography>
+
+        <RightBox>
+          <SummonerName>
+            <Typography size={TypoSize.SH2}>{name}</Typography>
+            <IconWrapper onClick={handleChangeIsLike}>
+              {isFavorite ? (
+                <Icon name="favorite" fill={red.red3} />
+              ) : (
+                <Icon name="favorite-empty" stroke={gray.gray7} />
+              )}
+            </IconWrapper>
+          </SummonerName>
+
+          <Button label={t('update-button')} onClick={() => location.reload()} />
+
+          <Typography size={TypoSize.B5} color={gray.gray6}>
+            {t('recent-access')} : {Time(revisionDate).format('YYYY-MM-DD')}
+          </Typography>
+        </RightBox>
       </Content>
     </Card>
   );

@@ -9,9 +9,13 @@ import Button from '@components/_atoms/Button';
 
 //  constants
 import { mq } from '@utils/style';
+import FavoritesBox from './FavoritesBox';
 
 const Layout = styled.form`
   margin-top: 24px;
+`;
+
+const SearchBox = styled.div`
   display: flex;
   column-gap: 12px;
 
@@ -22,8 +26,9 @@ const Layout = styled.form`
 `;
 
 export default function SearchForm() {
-  const router = useRouter();
   const { t } = useTranslation('search');
+  const router = useRouter();
+  const { name } = router.query as { name?: string };
 
   const [form, setForm] = useState('');
 
@@ -35,7 +40,7 @@ export default function SearchForm() {
 
   // search submit
   const handleFormSubmit = () => {
-    router.push(`/search?name=${form}`, undefined, { shallow: true });
+    router.push(`/search?name=${form}`);
   };
 
   return (
@@ -44,8 +49,11 @@ export default function SearchForm() {
         e.preventDefault();
         handleFormSubmit();
       }}>
-      <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
-      <Button label={t('search-button')} />
+      <SearchBox>
+        <TextInput name="form" value={form} placeholder={t('placeholder')} onChange={handleFormChange} />
+        <Button label={t('search-button')} />
+      </SearchBox>
+      <FavoritesBox key={name} />
     </Layout>
   );
 }

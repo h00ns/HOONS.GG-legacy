@@ -1,17 +1,19 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 //  components
+import Typography from '@components/_atoms/Typography';
+import Divider from '@components/_atoms/Divider';
 import Card from '@components/_atoms/Card';
 
 //  types
 import { getSummonerDetailDataType } from '@customType/summoner';
-import Typography from '@components/_atoms/Typography';
 import { TypoSize } from '@constants/atoms/Typography';
-import Image from 'next/image';
-import Divider from '@components/_atoms/Divider';
 import { blue, gray, red } from '@styles/Colors';
+
+//  utils
 import { getWinRate } from '@utils/winRates';
-import { useTranslation } from 'next-i18next';
 
 type Props = {
   title: string;

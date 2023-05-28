@@ -12,6 +12,7 @@ export interface getSummonerInfoByNameData {
     profileIconId: number;
     puuid: string;
     summonerLevel: number;
+    revisionDate: number;
   }
 }
 

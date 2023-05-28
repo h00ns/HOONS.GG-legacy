@@ -5,6 +5,8 @@ import Close from '@public/assets/icons/Close.svg'
 import Search from '@public/assets/icons/Search.svg'
 import ArrowUp from '@public/assets/icons/ArrowUp.svg'
 import ArrowDown from '@public/assets/icons/ArrowDown.svg'
+import Favorite from '@public/assets/icons/Favorite.svg'
+import FavoriteEmpty from '@public/assets/icons/FavoriteEmpty.svg'
 
 export const icons = {
   'global': Global,
@@ -13,7 +15,9 @@ export const icons = {
   'close': Close,
   'search': Search,
   'arrow-up': ArrowUp,
-  'arrow-down': ArrowDown
+  'arrow-down': ArrowDown,
+  'favorite': Favorite,
+  'favorite-empty': FavoriteEmpty
 }
 
 export type IconName = keyof typeof icons;

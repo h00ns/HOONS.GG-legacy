@@ -1,6 +1,6 @@
 export enum IconSize {
   SMALL = '24px',
-  MEDIUM = '48px',
-  LARGE = '72px',
+  MEDIUM = '36px',
+  LARGE = '48px',
   MAXIMUM = '96px',
 }

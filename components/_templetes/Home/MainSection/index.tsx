@@ -8,10 +8,10 @@ import Typography from '@components/_atoms/Typography';
 
 //  constants
 import { TypoSize } from '@constants/atoms/Typography';
-import { mq } from '@utils/style';
+import { SEARCH } from '@constants/routes/routes';
 
 const Layout = styled.div`
-  height: 1080px;
+  height: 640px;
   padding-top: 64px;
 
   background-color: #5383e8;
@@ -20,10 +20,6 @@ const Layout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  ${mq['sm']} {
-    height: 640px;
-  }
 `;
 
 const Content = styled.div`
@@ -44,10 +40,10 @@ export default function MainSection() {
   return (
     <Layout>
       <Content>
-        <Typography size={TypoSize.SH1}>{t('main.title')}</Typography>
+        <Typography size={TypoSize.H5}>{t('main.title')}</Typography>
 
         <ButtonWrapper>
-          <Link href="/search">
+          <Link href={SEARCH}>
             <a>
               <Button label={t('main.button')} />
             </a>

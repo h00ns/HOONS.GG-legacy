@@ -1,6 +1,12 @@
-import Footer from '@components/_organisms/footer';
-import Header from '@components/_organisms/header';
 import styled from '@emotion/styled';
+import { useIsTablet } from '@hooks/responsive/useIsMobile';
+
+//  components
+import Header from '@components/_organisms/Header';
+import MobileHeader from '@components/_organisms/MobileHeader';
+import Footer from '@components/_organisms/Footer';
+
+//  constants
 import { white } from '@styles/Colors';
 
 type Props = {
@@ -40,10 +46,12 @@ const Content = styled.div`
 `;
 
 export default function DefaultLayout({ children, isHome }: Props) {
+  const isTablet = useIsTablet();
+
   return (
     <Layout isHome={isHome}>
       {/* Header */}
-      <Header />
+      {isTablet ? <MobileHeader /> : <Header />}
       {/* Header end */}
 
       {/* Content */}

@@ -36,7 +36,7 @@ export const useGetMatchDetailFetch = ({ matchId }: getMatchDetailPayload) => {
     ['getMatchDetail', matchId],
     async () => {
       const result = await getMatchDetailApi({ matchId });
-      return result.data.data;
+      return result.data.data; 
     },
     {
       enabled: !!matchId,

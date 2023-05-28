@@ -1,4 +1,4 @@
-import { apiRegionUrlCompiler } from "..";
+import { apiRegionUrlCompiler } from "../../index";
 
 // 매치 세부 정보 가져오기 API
 export default async function handler(request, response) {

@@ -8,7 +8,6 @@ import TierCard from './TierCard';
 import { mq } from '@utils/style';
 
 //  types
-import { getSummonerDetailData } from '@customType/summoner';
 import { RankType } from '@constants/data';
 import { useGetSummonerDetailFetch } from '@hooks/fetch/useSummonerFetch';
 

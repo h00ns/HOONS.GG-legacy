@@ -13,6 +13,7 @@ import PlayerRow from './PlayerRow';
 
 type Props = {
   data: getMatchDetailData['data'];
+  myName?: string;
 };
 
 const Layout = styled.div`
@@ -37,7 +38,7 @@ const TeamBox = styled.div<{ win: boolean }>`
   `}
 `;
 
-export default function DetailCard({ data }: Props) {
+export default function DetailCard({ data, myName }: Props) {
   const { participants } = data.info ?? {};
   const leftTeam = participants.filter((item) => item.teamId === 100);
   const rightTeam = participants.filter((item) => item.teamId === 200);
@@ -46,12 +47,12 @@ export default function DetailCard({ data }: Props) {
     <Layout>
       <TeamBox win={leftTeam[0].win}>
         {leftTeam.map((playerData) => (
-          <PlayerRow data={playerData} key={playerData.summonerName} />
+          <PlayerRow data={playerData} myName={myName} key={playerData.summonerName} />
         ))}
       </TeamBox>
       <TeamBox win={rightTeam[0].win}>
         {rightTeam.map((playerData) => (
-          <PlayerRow data={playerData} key={playerData.summonerName} />
+          <PlayerRow data={playerData} myName={myName} key={playerData.summonerName} />
         ))}
       </TeamBox>
     </Layout>

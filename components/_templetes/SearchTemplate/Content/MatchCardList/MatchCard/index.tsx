@@ -7,7 +7,7 @@ import MatchInfoBox from './MatchInfoBox';
 import ChampionBox from './ChampionBox';
 import SpellBox from '../../../../../_organisms/service/SpellBox';
 import KdaBox from './KdaBox';
-import ItemBox from './ItemBox';
+import ItemBox from '../../../../../_organisms/service/ItemBox';
 import PlayerBox from './PlayerBox';
 import MatchDetailCard from './MatchDetailCard';
 
@@ -16,10 +16,10 @@ import { blue, primary, red } from '@styles/Colors';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 import { mq } from '@utils/style';
+import { IconSize } from '@constants/atoms/Icon';
 
 //  hooks
 import { useGetMatchDetailFetch } from '@hooks/fetch/useMatchFetch';
-import { IconSize } from '@constants/atoms/Icon';
 
 type Props = {
   matchId: string;
@@ -106,7 +106,7 @@ export default function MatchCard({ matchId, puuid }: Props) {
               {/* Kda Box end */}
             </FlexColumnBox>
             {/* Item Box */}
-            <ItemBox data={myData} />
+            <ItemBox size="25px" data={myData} />
             {/* Item Box end */}
           </FlexRowBox>
         </FlexColumnBox>
@@ -124,7 +124,7 @@ export default function MatchCard({ matchId, puuid }: Props) {
         </OpenBox>
       </MatchCardWrapper>
 
-      {isOpen && <MatchDetailCard data={detailData} />}
+      {isOpen && <MatchDetailCard data={detailData} myName={myName} />}
     </Layout>
   );
 }

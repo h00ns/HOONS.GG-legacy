@@ -5,12 +5,9 @@ import Image from 'next/image';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 
-//  hooks
-import { useGetRuneIconUrl } from '@hooks/atoms/useGetRuneIconUrl';
-
 type Props = {
   size: string;
-  runeId: number;
+  itemId: number;
 };
 
 const Layout = styled.div`
@@ -21,18 +18,16 @@ const Layout = styled.div`
   position: relative;
 `;
 
-export default function Rune({ size, runeId }: Props) {
-  const runeIconUrl = useGetRuneIconUrl(runeId);
-
+export default function Item({ size, itemId }: Props) {
   const width = size;
   const height = size;
 
   return (
     <Layout style={{ width, height }}>
       <Image
-        src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeIconUrl}`}
+        src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${itemId}.png`}
         layout="fill"
-        alt={runeId.toString()}
+        alt={itemId.toString()}
       />
     </Layout>
   );

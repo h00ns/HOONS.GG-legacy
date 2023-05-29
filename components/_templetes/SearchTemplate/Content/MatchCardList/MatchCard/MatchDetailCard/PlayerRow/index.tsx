@@ -5,12 +5,13 @@ import Image from 'next/image';
 import NextLink from '@components/_atoms/NextLink';
 import Typography from '@components/_atoms/Typography';
 import SpellBox from '@components/_organisms/service/SpellBox';
+import ItemBox from '@components/_organisms/service/ItemBox';
 
 //  constants
 import { searchPath } from '@constants/routes/routes';
 import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
-import { black, white } from '@styles/Colors';
+import { black, gray, white } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 
 //  types
@@ -21,6 +22,7 @@ import { useGetChampionDataById } from '@hooks/service/useGetChampionDataById';
 
 type Props = {
   data: ParticipantsType;
+  myName?: string;
 };
 
 const Layout = styled.div`
@@ -55,8 +57,17 @@ const ChampionLevelWrapper = styled.div`
   left: -15%;
 `;
 
-export default function PlayerRow({ data }: Props) {
-  const { summonerName, championId, champLevel } = data ?? {};
+const TextWrapper = styled.div`
+  width: 100px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+`;
+
+export default function PlayerRow({ data, myName }: Props) {
+  const { summonerName, championId, champLevel, kills, deaths, assists } = data ?? {};
+  const isMyName = summonerName === myName;
 
   const championData = useGetChampionDataById(championId!);
   const { full: image } = championData?.image ?? {};
@@ -85,7 +96,16 @@ export default function PlayerRow({ data }: Props) {
         <SpellBox size="20px" data={data} />
         {/* Spell Box end */}
 
-        <Typography size={TypoSize.B4}>{summonerName}</Typography>
+        <TextWrapper>
+          <Typography size={isMyName ? TypoSize.SH4 : TypoSize.B4}>{summonerName}</Typography>
+          <Typography size={TypoSize.B4} color={gray.gray6}>
+            {kills} / {deaths} / {assists}
+          </Typography>
+        </TextWrapper>
+
+        {/* Item Box */}
+        <ItemBox size="25px" data={data} />
+        {/* Item Box end */}
       </Layout>
     </NextLink>
   );

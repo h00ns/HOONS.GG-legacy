@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Typography from '@components/_atoms/Typography';
@@ -56,6 +57,8 @@ const DamageStick = styled.div<{ width: string; background: string }>`
 `;
 
 export default function DamageBox({ damage, maxDamage }: Props) {
+  const { t } = useTranslation('search');
+
   const { deal, taken } = damage;
   const { deal: maxDeal, taken: maxTaken } = maxDamage;
 
@@ -65,7 +68,7 @@ export default function DamageBox({ damage, maxDamage }: Props) {
   return (
     <Layout>
       <Typography size={TypoSize.B4} color={gray.gray6}>
-        피해량
+        {t('damage')}
       </Typography>
       <DamageItemWrapper>
         <DamageItem>

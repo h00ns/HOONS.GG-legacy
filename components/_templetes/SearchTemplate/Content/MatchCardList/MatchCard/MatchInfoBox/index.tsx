@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Typography from '@components/_atoms/Typography';
@@ -13,11 +14,11 @@ import { getMatchDetailData } from '@customType/match';
 import { QueueType } from '@constants/service';
 
 //  hooks
+import { useGetQueueType } from '@components/_templetes/SearchTemplate/Hooks/useGetQueueType';
+import { useGetGameTime } from '@components/_templetes/SearchTemplate/Hooks/useGetGameTime';
 
 //  utils
 import { Time } from '@utils/time';
-import { useGetQueueType } from '@components/_templetes/SearchTemplate/Hooks/useGetQueueType';
-import { useGetGameTime } from '@components/_templetes/SearchTemplate/Hooks/useGetGameTime';
 
 type Props = {
   win?: boolean;
@@ -38,6 +39,8 @@ const DescriptionBox = styled.div`
 `;
 
 export default function MatchInfoBox({ data, win }: Props) {
+  const { t } = useTranslation('search');
+
   const { queueId, gameDuration, gameCreation } = data?.info ?? {};
 
   const queueType = useGetQueueType(queueId as QueueType);
@@ -59,7 +62,7 @@ export default function MatchInfoBox({ data, win }: Props) {
       <Divider width="20px" color={dividerColor} />
       <DescriptionBox>
         <Typography size={TypoSize.SH5} color={gray.gray6}>
-          {win ? '승리' : '패배'}
+          {win ? t('win-2') : t('lose-2')}
         </Typography>
         <Typography size={TypoSize.B5} color={gray.gray6}>
           {gameTime}

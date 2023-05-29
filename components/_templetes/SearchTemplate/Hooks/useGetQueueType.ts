@@ -1,20 +1,23 @@
 import { QueueType } from "@constants/service"
+import { useTranslation } from "next-i18next";
 import { useMemo } from "react"
 
 // 큐 타입 return
 export const useGetQueueType = (queueId: QueueType) => {
+  const { t } = useTranslation('search');
+  
   const queueType = useMemo(() => {
     switch (queueId) {
       case QueueType.SOLO:
-        return '솔랭'
+        return t('solo-rank-title')
       case QueueType.NORMAL:
-        return '일반'
+        return t('normal-title')
       case QueueType.FLEX:
-        return '자유 5:5 랭크'
+        return t('flex-rank-title')
       case QueueType.ARAM:
-        return '무작위 총력전'
+        return t('aram-title')
     }
-  }, [queueId])
+  }, [queueId, t])
 
   return queueType
 }

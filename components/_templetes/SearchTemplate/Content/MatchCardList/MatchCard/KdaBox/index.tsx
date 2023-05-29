@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 //  components
 import Typography from '@components/_atoms/Typography';
@@ -28,6 +29,8 @@ const HighLightRed = styled.span`
 `;
 
 export default function KdaBox({ data }: Props) {
+  const { t } = useTranslation('search');
+
   const { kills, deaths, assists } = data ?? {};
   const avg = useGetKdaAvg(kills, deaths, assists);
 
@@ -37,7 +40,7 @@ export default function KdaBox({ data }: Props) {
         {kills} / <HighLightRed>{deaths}</HighLightRed> / {assists}
       </Typography>
       <Typography size={TypoSize.B5} color={gray.gray6}>
-        {avg} 평점
+        {avg} {t('avg')}
       </Typography>
     </Layout>
   );

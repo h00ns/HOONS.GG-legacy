@@ -17,6 +17,7 @@ import { useGetPercentage } from '@components/_templetes/SearchTemplate/Hooks/us
 
 //  utils
 import { returnNumberWithComma } from '@utils/regex';
+import { mq } from '@utils/style';
 
 type Props = {
   damage: DamageType;

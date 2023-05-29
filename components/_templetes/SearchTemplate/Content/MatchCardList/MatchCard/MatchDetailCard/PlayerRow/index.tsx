@@ -30,14 +30,14 @@ type Props = {
 
 const Layout = styled.div`
   padding: 4px;
-
   display: flex;
   align-items: center;
   column-gap: 12px;
 
   ${mq['md']} {
+    margin-top: 12px;
+    padding-top: 12px;
     flex-direction: column;
-    row-gap: 4px;
   }
 `;
 
@@ -45,6 +45,12 @@ const FlexColumnBox = styled.div`
   display: flex;
   align-items: center;
   column-gap: 12px;
+`;
+
+const RightBox = styled(FlexColumnBox)`
+  ${mq['md']} {
+    flex-direction: column;
+  }
 `;
 
 const ChampionWrapper = styled.div`
@@ -114,7 +120,7 @@ export default function PlayerRow({ data, myName, maxDamage }: Props) {
           </TextWrapper>
         </FlexColumnBox>
 
-        <FlexColumnBox>
+        <RightBox>
           {/* Damage Box */}
           <DamageBox damage={{ deal, taken }} maxDamage={maxDamage} />
           {/* Damage Box end */}
@@ -122,7 +128,7 @@ export default function PlayerRow({ data, myName, maxDamage }: Props) {
           {/* Item Box */}
           <ItemBox size="25px" data={data} />
           {/* Item Box end */}
-        </FlexColumnBox>
+        </RightBox>
       </Layout>
     </NextLink>
   );

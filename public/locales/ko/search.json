@@ -4,9 +4,20 @@
   "placeholder": "소환사명...",
   "solo-rank": "솔로랭크",
   "flex-rank": "자유랭크",
+  "normal-title": "일반",
+  "solo-rank-title": "솔랭",
+  "flex-rank-title": "자유 5:5 랭크",
+  "aram-title": "무작위 총력전",
   "win": "승",
   "lose": "패",
+  "win-2": "승리",
+  "lose-2": "패배",
   "win-rate": "승률",
   "update-button": "업데이트",
-  "recent-access": "최근접속"
+  "recent-access": "최근접속",
+  "hour": "시",
+  "min": "분",
+  "sec": "초",
+  "avg": "평점",
+  "damage": "피해량"
 }

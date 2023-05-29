@@ -10,7 +10,7 @@ type Props = {
   readonly itemId: number;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   border-radius: ${Radius.MEDIUM};
   box-shadow: ${Shadow.MEDIUM};
   overflow: hidden;
@@ -23,12 +23,12 @@ export default function Item({ size, itemId }: Props) {
   const height = size;
 
   return (
-    <Layout style={{ width, height }}>
+    <Component style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/item/${itemId}.png`}
         layout="fill"
         alt={itemId.toString()}
       />
-    </Layout>
+    </Component>
   );
 }

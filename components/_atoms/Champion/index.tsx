@@ -10,7 +10,7 @@ type Props = {
   readonly imagePath: string;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   border-radius: ${Radius.MEDIUM};
   box-shadow: ${Shadow.MEDIUM};
   overflow: hidden;
@@ -24,12 +24,12 @@ export default function Champion({ size, imagePath }: Props) {
 
   if (!imagePath) return null;
   return (
-    <Layout style={{ width, height }}>
+    <Component style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${imagePath}`}
         layout="fill"
         alt={imagePath}
       />
-    </Layout>
+    </Component>
   );
 }

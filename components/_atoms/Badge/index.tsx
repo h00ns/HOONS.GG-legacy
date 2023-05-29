@@ -9,7 +9,7 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { Radius } from '@styles/Radius';
 
 type Props = {
-  label: string | number;
+  readonly label: string | number;
 };
 
 const Component = styled.div`

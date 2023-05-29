@@ -12,7 +12,7 @@ type Props = {
   readonly spellId: number;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   position: relative;
 
   border-radius: ${Radius.MEDIUM};
@@ -26,12 +26,12 @@ export default function Spell({ size, spellId }: Props) {
   const height = size;
 
   return (
-    <Layout style={{ width, height }}>
+    <Component style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/${spellName}.png`}
         layout="fill"
         alt={spellName}
       />
-    </Layout>
+    </Component>
   );
 }

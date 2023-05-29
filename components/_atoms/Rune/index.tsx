@@ -13,7 +13,7 @@ type Props = {
   readonly runeId: number;
 };
 
-const Layout = styled.div`
+const Component = styled.div`
   border-radius: ${Radius.MEDIUM};
   box-shadow: ${Shadow.MEDIUM};
   overflow: hidden;
@@ -28,12 +28,12 @@ export default function Rune({ size, runeId }: Props) {
   const height = size;
 
   return (
-    <Layout style={{ width, height }}>
+    <Component style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeIconUrl}`}
         layout="fill"
         alt={runeId.toString()}
       />
-    </Layout>
+    </Component>
   );
 }

@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-//  components
-
 //  constants
 import { gray, white } from '@styles/Colors';
 import { Radius } from '@styles/Radius';

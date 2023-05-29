@@ -9,8 +9,8 @@ import { Shadow } from '@styles/Shadow';
 import { useGetRuneIconUrl } from '@hooks/atoms/useGetRuneIconUrl';
 
 type Props = {
-  size: string;
-  runeId: number;
+  readonly size: string;
+  readonly runeId: number;
 };
 
 const Layout = styled.div`

@@ -6,8 +6,8 @@ import { Radius } from '@styles/Radius';
 import { Shadow } from '@styles/Shadow';
 
 type Props = {
-  size: string;
-  imagePath: string;
+  readonly size: string;
+  readonly imagePath: string;
 };
 
 const Layout = styled.div`

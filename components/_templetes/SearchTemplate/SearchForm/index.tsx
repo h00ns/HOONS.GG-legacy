@@ -5,11 +5,11 @@ import { useTranslation } from 'next-i18next';
 
 //  components
 import TextInput from '@components/_atoms/TextInput';
+import FavoritesBox from './FavoritesBox';
 import Button from '@components/_atoms/Button';
 
 //  constants
 import { mq } from '@utils/style';
-import FavoritesBox from './FavoritesBox';
 
 const Layout = styled.form`
   margin-top: 24px;

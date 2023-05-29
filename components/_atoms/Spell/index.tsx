@@ -8,8 +8,8 @@ import { Radius } from '@styles/Radius';
 import { useGetSpellName } from '@hooks/atoms/useGetSpellName';
 
 type Props = {
-  size: string;
-  spellId: number;
+  readonly size: string;
+  readonly spellId: number;
 };
 
 const Layout = styled.div`

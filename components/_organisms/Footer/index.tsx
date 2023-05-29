@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import NextLink from '@components/_atoms/NextLink';
+import Image from 'next/image';
 
 //  components
 import Typography from '@components/_atoms/Typography';
@@ -10,7 +11,6 @@ import { TypoSize } from '@constants/atoms/Typography';
 import { Shadow } from '@styles/Shadow';
 import { gray } from '@styles/Colors';
 import { GITHUB, SNS, VELOG } from '@constants/routes/routes';
-import Image from 'next/image';
 import { Radius } from '@styles/Radius';
 
 const Layout = styled.div`

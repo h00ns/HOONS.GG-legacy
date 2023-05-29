@@ -4,8 +4,8 @@ import styled from '@emotion/styled';
 import { gray } from '@styles/Colors';
 
 type Props = {
-  width?: string;
-  color?: string;
+  readonly width?: string;
+  readonly color?: string;
 };
 
 const Component = styled.div<Props>`

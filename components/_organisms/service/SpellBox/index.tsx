@@ -8,6 +8,7 @@ import Rune from '@components/_atoms/Rune';
 import { ParticipantsType } from '@customType/match';
 
 type Props = {
+  size: string;
   data: ParticipantsType;
 };
 
@@ -17,7 +18,7 @@ const Layout = styled.div`
   gap: 4px;
 `;
 
-export default function SpellBox({ data }: Props) {
+export default function SpellBox({ size, data }: Props) {
   const { summoner1Id, summoner2Id, perks } = data ?? {};
 
   const primaryPerk = perks.styles?.find((item) => item.description === 'primaryStyle');
@@ -28,10 +29,10 @@ export default function SpellBox({ data }: Props) {
 
   return (
     <Layout>
-      <Spell spellId={summoner1Id} />
-      <Rune runeId={primaryPerkId} />
-      <Spell spellId={summoner2Id} />
-      <Rune runeId={subPerkId} />
+      <Spell size={size} spellId={summoner1Id} />
+      <Rune size={size} runeId={primaryPerkId} />
+      <Spell size={size} spellId={summoner2Id} />
+      <Rune size={size} runeId={subPerkId} />
     </Layout>
   );
 }

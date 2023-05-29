@@ -8,23 +8,25 @@ import { Radius } from '@styles/Radius';
 import { useGetRuneIconUrl } from '@hooks/atoms/useGetRuneIconUrl';
 
 type Props = {
+  size: string;
   runeId: number;
 };
 
 const Layout = styled.div`
-  width: 25px;
-  height: 25px;
   position: relative;
 
   border-radius: ${Radius.MEDIUM};
   overflow: hidden;
 `;
 
-export default function Rune({ runeId }: Props) {
+export default function Rune({ size, runeId }: Props) {
   const runeIconUrl = useGetRuneIconUrl(runeId);
 
+  const width = size;
+  const height = size;
+
   return (
-    <Layout>
+    <Layout style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeIconUrl}`}
         layout="fill"

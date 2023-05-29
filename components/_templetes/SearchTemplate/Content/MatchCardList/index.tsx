@@ -14,7 +14,7 @@ type Props = {
 
 const Layout = styled.div`
   display: grid;
-  row-gap: 4px;
+  row-gap: 8px;
 `;
 
 const InfiniteScrollSection = styled.div`

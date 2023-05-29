@@ -8,23 +8,25 @@ import { Radius } from '@styles/Radius';
 import { useGetSpellName } from '@hooks/atoms/useGetSpellName';
 
 type Props = {
+  size: string;
   spellId: number;
 };
 
 const Layout = styled.div`
-  width: 25px;
-  height: 25px;
   position: relative;
 
   border-radius: ${Radius.MEDIUM};
   overflow: hidden;
 `;
 
-export default function Spell({ spellId }: Props) {
+export default function Spell({ size, spellId }: Props) {
   const spellName = useGetSpellName(spellId);
 
+  const width = size;
+  const height = size;
+
   return (
-    <Layout>
+    <Layout style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/${spellName}.png`}
         layout="fill"

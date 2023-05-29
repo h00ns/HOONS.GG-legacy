@@ -1,16 +1,15 @@
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 //  components
 import NextLink from '@components/_atoms/NextLink';
 import Typography from '@components/_atoms/Typography';
 import SpellBox from '@components/_organisms/service/SpellBox';
 import ItemBox from '@components/_organisms/service/ItemBox';
+import Champion from '@components/_atoms/Champion';
 
 //  constants
 import { searchPath } from '@constants/routes/routes';
 import { Radius } from '@styles/Radius';
-import { Shadow } from '@styles/Shadow';
 import { black, gray, white } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
 
@@ -37,15 +36,6 @@ const ChampionWrapper = styled.div`
   position: relative;
 `;
 
-const ChampionImageWrapper = styled.div`
-  width: 40px;
-  height: 40px;
-  position: relative;
-  border-radius: ${Radius.MAXIMUM};
-  box-shadow: ${Shadow.MEDIUM};
-  overflow: hidden;
-`;
-
 const ChampionLevelWrapper = styled.div`
   width: max-content;
   padding: 3px;
@@ -70,7 +60,7 @@ export default function PlayerRow({ data, myName }: Props) {
   const isMyName = summonerName === myName;
 
   const championData = useGetChampionDataById(championId!);
-  const { full: image } = championData?.image ?? {};
+  const { full: imagePath } = championData?.image ?? {};
 
   const SEARCH = searchPath.query({ name: summonerName });
 
@@ -78,13 +68,7 @@ export default function PlayerRow({ data, myName }: Props) {
     <NextLink href={SEARCH}>
       <Layout>
         <ChampionWrapper>
-          <ChampionImageWrapper>
-            <Image
-              src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${image}`}
-              layout="fill"
-              alt={image}
-            />
-          </ChampionImageWrapper>
+          <Champion size="40px" imagePath={imagePath ?? ''} />
           <ChampionLevelWrapper>
             <Typography size={TypoSize.B5} color={white}>
               {champLevel}

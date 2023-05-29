@@ -4,9 +4,20 @@
   "placeholder": "Summoner Name...",
   "solo-rank": "Ranked Solo",
   "flex-rank": "Ranked Flex",
+  "normal-title": "Normar",
+  "solo-rank-title": "Solo",
+  "flex-rank-title": "Flex 5:5 Rank",
+  "aram-title": "ARAM",
   "win": "W",
   "lose": "L",
+  "win-2": "Win",
+  "lose-2": "Lose",
   "win-rate": "Rate",
   "update-button": "Update",
-  "recent-access": "Recent Access"
+  "recent-access": "Recent Access",
+  "hour": "hour",
+  "min": "min",
+  "sec": "sec",
+  "avg": "avg",
+  "damage": "Damage"
 }

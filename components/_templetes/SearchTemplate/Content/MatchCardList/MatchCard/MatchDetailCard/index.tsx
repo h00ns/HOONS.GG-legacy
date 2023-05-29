@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 //  components
+import PlayerRow from './PlayerRow';
 
 //  constants
 import { blue, red, white } from '@styles/Colors';
@@ -9,11 +10,12 @@ import { Shadow } from '@styles/Shadow';
 
 //  types
 import { getMatchDetailData } from '@customType/match';
-import PlayerRow from './PlayerRow';
+import { DamageType } from '@components/_templetes/SearchTemplate/types';
 
 type Props = {
   data: getMatchDetailData['data'];
   myName?: string;
+  maxDamage: DamageType;
 };
 
 const Layout = styled.div`
@@ -38,7 +40,7 @@ const TeamBox = styled.div<{ win: boolean }>`
   `}
 `;
 
-export default function DetailCard({ data, myName }: Props) {
+export default function DetailCard({ data, myName, maxDamage }: Props) {
   const { participants } = data.info ?? {};
   const leftTeam = participants.filter((item) => item.teamId === 100);
   const rightTeam = participants.filter((item) => item.teamId === 200);
@@ -47,12 +49,12 @@ export default function DetailCard({ data, myName }: Props) {
     <Layout>
       <TeamBox win={leftTeam[0].win}>
         {leftTeam.map((playerData) => (
-          <PlayerRow data={playerData} myName={myName} key={playerData.summonerName} />
+          <PlayerRow data={playerData} myName={myName} maxDamage={maxDamage} key={playerData.summonerName} />
         ))}
       </TeamBox>
       <TeamBox win={rightTeam[0].win}>
         {rightTeam.map((playerData) => (
-          <PlayerRow data={playerData} myName={myName} key={playerData.summonerName} />
+          <PlayerRow data={playerData} myName={myName} maxDamage={maxDamage} key={playerData.summonerName} />
         ))}
       </TeamBox>
     </Layout>

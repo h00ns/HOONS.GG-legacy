@@ -1,11 +1,25 @@
-import Typography from '@components/_atoms/Typography';
-import { TypoSize } from '@constants/atoms/Typography';
 import styled from '@emotion/styled';
-import { gray } from '@styles/Colors';
+
+//  components
+import Typography from '@components/_atoms/Typography';
+
+//  constants
+import { TypoSize } from '@constants/atoms/Typography';
+import { gray, red, white } from '@styles/Colors';
+
+//  types
+import { DamageType } from '@components/_templetes/SearchTemplate/types';
+import { Radius } from '@styles/Radius';
+
+//  hooks
+import { useGetPercentage } from '@components/_templetes/SearchTemplate/Hooks/useGetWinRate';
+
+//  utils
+import { returnNumberWithComma } from '@utils/regex';
 
 type Props = {
-  deal: number;
-  taken: number;
+  damage: DamageType;
+  maxDamage: DamageType;
 };
 
 const Layout = styled.div`
@@ -24,7 +38,30 @@ const DamageItemWrapper = styled.div`
 
 const DamageItem = styled.div``;
 
-export default function DamageBox({ deal, taken }: Props) {
+const DamageStickWrapper = styled.div`
+  height: 8px;
+  width: 75px;
+  margin-top: 4px;
+  background: ${white};
+  border-radius: ${Radius.MEDIUM};
+  overflow: hidden;
+
+  position: relative;
+`;
+
+const DamageStick = styled.div<{ width: string; background: string }>`
+  width: ${({ width }) => width};
+  background: ${({ background }) => background};
+  height: 100%;
+`;
+
+export default function DamageBox({ damage, maxDamage }: Props) {
+  const { deal, taken } = damage;
+  const { deal: maxDeal, taken: maxTaken } = maxDamage;
+
+  const dealStickPercent = useGetPercentage(deal, maxDeal) + '%';
+  const takenStickPercent = useGetPercentage(taken, maxTaken) + '%';
+
   return (
     <Layout>
       <Typography size={TypoSize.B4} color={gray.gray6}>
@@ -33,13 +70,19 @@ export default function DamageBox({ deal, taken }: Props) {
       <DamageItemWrapper>
         <DamageItem>
           <Typography size={TypoSize.B5} color={gray.gray6}>
-            {deal}
+            {returnNumberWithComma(deal)}
           </Typography>
+          <DamageStickWrapper>
+            <DamageStick width={dealStickPercent} background={red.red3} />
+          </DamageStickWrapper>
         </DamageItem>
         <DamageItem>
           <Typography size={TypoSize.B5} color={gray.gray6}>
-            {taken}
+            {returnNumberWithComma(taken)}
           </Typography>
+          <DamageStickWrapper>
+            <DamageStick width={takenStickPercent} background={gray.gray6} />
+          </DamageStickWrapper>
         </DamageItem>
       </DamageItemWrapper>
     </Layout>

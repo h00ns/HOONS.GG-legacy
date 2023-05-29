@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 //  components
 import Icon from '@components/_atoms/Icon';
@@ -81,8 +81,16 @@ export default function MatchCard({ matchId, puuid }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { getMatchDetailData: detailData } = useGetMatchDetailFetch({ matchId });
-  const myData = detailData?.info.participants.find((data) => data.puuid === puuid);
+  const participants = detailData?.info.participants;
+  // 검색 유저 데이터
+  const myData = participants?.find((data) => data.puuid === puuid);
   const { win, summonerName: myName } = myData ?? {};
+
+  // 매치에서 가장 높은 피해량
+  const maxDamage = {
+    deal: Math.max(...(participants?.map((playerData) => playerData.totalDamageDealtToChampions) ?? [0])),
+    taken: Math.max(...(participants?.map((playerData) => playerData.totalDamageTaken) ?? [0])),
+  };
 
   if (!detailData || !myData) return null;
   return (
@@ -124,7 +132,7 @@ export default function MatchCard({ matchId, puuid }: Props) {
         </OpenBox>
       </MatchCardWrapper>
 
-      {isOpen && <MatchDetailCard data={detailData} myName={myName} />}
+      {isOpen && <MatchDetailCard data={detailData} myName={myName} maxDamage={maxDamage} />}
     </Layout>
   );
 }

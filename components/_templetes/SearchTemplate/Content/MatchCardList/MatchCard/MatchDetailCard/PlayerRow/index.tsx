@@ -6,24 +6,26 @@ import Typography from '@components/_atoms/Typography';
 import SpellBox from '@components/_organisms/service/SpellBox';
 import ItemBox from '@components/_organisms/service/ItemBox';
 import Champion from '@components/_atoms/Champion';
+import DamageBox from './DamageBox';
 
 //  constants
 import { searchPath } from '@constants/routes/routes';
 import { Radius } from '@styles/Radius';
 import { black, gray, white } from '@styles/Colors';
 import { TypoSize } from '@constants/atoms/Typography';
+import { mq } from '@utils/style';
 
 //  types
 import { ParticipantsType } from '@customType/match';
-import { mq } from '@utils/style';
+import { DamageType } from '@components/_templetes/SearchTemplate/types';
 
 //  hooks
 import { useGetChampionDataById } from '@hooks/service/useGetChampionDataById';
-import DamageBox from './DamageBox';
 
 type Props = {
   data: ParticipantsType;
   myName?: string;
+  maxDamage: DamageType;
 };
 
 const Layout = styled.div`
@@ -68,7 +70,7 @@ const TextWrapper = styled.div`
   row-gap: 4px;
 `;
 
-export default function PlayerRow({ data, myName }: Props) {
+export default function PlayerRow({ data, myName, maxDamage }: Props) {
   const {
     summonerName,
     championId,
@@ -77,8 +79,8 @@ export default function PlayerRow({ data, myName }: Props) {
     deaths,
     assists,
     totalMinionsKilled,
-    totalDamageDealt,
-    totalDamageTaken,
+    totalDamageDealtToChampions: deal,
+    totalDamageTaken: taken,
   } = data ?? {};
   const isMyName = summonerName === myName;
 
@@ -113,7 +115,9 @@ export default function PlayerRow({ data, myName }: Props) {
         </FlexColumnBox>
 
         <FlexColumnBox>
-          <DamageBox deal={totalDamageDealt} taken={totalDamageTaken} />
+          {/* Damage Box */}
+          <DamageBox damage={{ deal, taken }} maxDamage={maxDamage} />
+          {/* Damage Box end */}
 
           {/* Item Box */}
           <ItemBox size="25px" data={data} />

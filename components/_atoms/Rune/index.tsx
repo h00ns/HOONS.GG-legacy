@@ -3,28 +3,32 @@ import Image from 'next/image';
 
 //  constants
 import { Radius } from '@styles/Radius';
+import { Shadow } from '@styles/Shadow';
 
 //  hooks
 import { useGetRuneIconUrl } from '@hooks/atoms/useGetRuneIconUrl';
 
 type Props = {
+  size: string;
   runeId: number;
 };
 
 const Layout = styled.div`
-  width: 25px;
-  height: 25px;
-  position: relative;
-
   border-radius: ${Radius.MEDIUM};
+  box-shadow: ${Shadow.MEDIUM};
   overflow: hidden;
+
+  position: relative;
 `;
 
-export default function Rune({ runeId }: Props) {
+export default function Rune({ size, runeId }: Props) {
   const runeIconUrl = useGetRuneIconUrl(runeId);
 
+  const width = size;
+  const height = size;
+
   return (
-    <Layout>
+    <Layout style={{ width, height }}>
       <Image
         src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeIconUrl}`}
         layout="fill"

@@ -12,8 +12,8 @@ import { getSummonerDetailDataType } from '@customType/summoner';
 import { TypoSize } from '@constants/atoms/Typography';
 import { blue, gray, red } from '@styles/Colors';
 
-//  utils
-import { useGetWinRate } from '@components/_templetes/SearchTemplate/Hooks/useGetWinRate';
+//  hooks
+import { useGetPercentage } from '@components/_templetes/SearchTemplate/Hooks/useGetWinRate';
 
 type Props = {
   title: string;
@@ -56,7 +56,7 @@ export default function TierCard({ title, data }: Props) {
   const { tier, rank, leaguePoints, wins, losses } = data ?? {};
 
   const total = wins && losses ? wins + losses : undefined;
-  const WIN_RATE = useGetWinRate(wins, total);
+  const WIN_RATE = useGetPercentage(wins, total);
 
   const TierImageUrl = `/assets/images/tier/${tier ?? 'UNRANKED'}.png`;
 

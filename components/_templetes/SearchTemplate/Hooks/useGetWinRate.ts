@@ -1,5 +1,5 @@
-export const useGetWinRate = (wins?: number, total?: number): number => {
-  if (!wins || !total) return 0
+export const useGetPercentage = (value?: number, total?: number): number => {
+  if (!value || !total) return 0
 
-  return Math.floor((wins / total) * 100);
+  return Math.floor((value / total) * 100);
 }

@@ -15,6 +15,7 @@ import { ParticipantsType } from '@customType/match';
 
 //  hooks
 import { useGetChampionDataById } from '@hooks/service/useGetChampionDataById';
+import Champion from '@components/_atoms/Champion';
 
 type Props = {
   data: ParticipantsType;
@@ -28,15 +29,6 @@ const Layout = styled.div`
   grid-template-columns: 18px 1fr;
   column-gap: 4px;
   align-items: center;
-`;
-
-const ChampionIconWrapper = styled.div`
-  width: 18px;
-  height: 18px;
-  position: relative;
-  border-radius: ${Radius.MEDIUM};
-  box-shadow: ${Shadow.MEDIUM};
-  overflow: hidden;
 `;
 
 const Text = styled.span<{ isMyName: boolean }>`
@@ -61,20 +53,14 @@ export default function PlayerItem({ data, myName }: Props) {
   const isMyName = summonerName === myName;
 
   const championData = useGetChampionDataById(championId!);
-  const { full: image } = championData?.image ?? {};
+  const { full: imagePath } = championData?.image ?? {};
 
   const SEARCH = searchPath.query({ name: summonerName });
 
   return (
     <NextLink href={SEARCH}>
       <Layout>
-        <ChampionIconWrapper>
-          <Image
-            src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${image}`}
-            layout="fill"
-            alt={image}
-          />
-        </ChampionIconWrapper>
+        <Champion size="18px" imagePath={imagePath ?? ''} />
         <Text isMyName={isMyName}>{summonerName}</Text>
       </Layout>
     </NextLink>

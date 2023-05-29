@@ -1,13 +1,12 @@
 import styled from '@emotion/styled';
-import Image from 'next/image';
 
 //  components
 import Typography from '@components/_atoms/Typography';
+import Champion from '@components/_atoms/Champion';
 
 //  constants
 import { black, white } from '@styles/Colors';
 import { Radius } from '@styles/Radius';
-import { Shadow } from '@styles/Shadow';
 import { TypoSize } from '@constants/atoms/Typography';
 
 //  types
@@ -20,15 +19,6 @@ type Props = {
 
 const Layout = styled.div`
   position: relative;
-`;
-
-const ChampionImageWrapper = styled.div`
-  width: 50px;
-  height: 50px;
-  position: relative;
-  box-shadow: ${Shadow.MEDIUM};
-  border-radius: ${Radius.MAXIMUM};
-  overflow: hidden;
 `;
 
 const ChampionLevelWrapper = styled.div`
@@ -46,17 +36,11 @@ export default function ChampionBox({ data }: Props) {
   const { champLevel, championId } = data ?? {};
 
   const championData = useGetChampionDataById(championId!);
-  const { full: image } = championData?.image ?? {};
+  const { full: imagePath } = championData?.image ?? {};
 
   return (
     <Layout>
-      <ChampionImageWrapper>
-        <Image
-          src={`https://ddragon.leagueoflegends.com/cdn/13.10.1/img/champion/${image}`}
-          layout="fill"
-          alt={image}
-        />
-      </ChampionImageWrapper>
+      <Champion size="50px" imagePath={imagePath ?? ''} />
       <ChampionLevelWrapper>
         <Typography size={TypoSize.B5} color={white}>
           {champLevel}

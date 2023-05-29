@@ -1,21 +1,24 @@
 import { getMatchDetailApi, getMatchsApi } from "@apis/match";
 import { getMatchDetailPayload, getMatchsPayload } from "@customType/match";
 import { AxiosError } from "axios";
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 
 /**
  *  매치 리스트 가져오기 Fetch
  *  @function useGetMatchsFetch
  */
 export const useGetMatchsFetch = ({ puuid }: getMatchsPayload) => {
-  const { data: getMatchsData } = useQuery(
-    ['getMatchs', puuid],
-    async () => {
-      const result = await getMatchsApi({ puuid });
+  const { data: getMatchsData, fetchNextPage: getMatchsNextPage } = useInfiniteQuery(
+    ['getMatchs'],
+    async ({ pageParam = 0 }) => {
+      const result = await getMatchsApi({ puuid, start: pageParam });
       return result.data.data;
     },
     {
       enabled: !!puuid,
+      getNextPageParam: (lastPage, allPages) => {
+        return (allPages.length) * 8
+      },
       onError: (err: AxiosError) => {
         console.log(err)
       }
@@ -23,6 +26,7 @@ export const useGetMatchsFetch = ({ puuid }: getMatchsPayload) => {
   
   return {
     getMatchsData,
+    getMatchsNextPage
   }
 }
 

@@ -1,6 +1,7 @@
 // 매치 리스트 가져오기 payload
 export interface getMatchsPayload {
   puuid?: string;
+  start?: number;
 }
 
 // 매치 리스트 가져오기 response type

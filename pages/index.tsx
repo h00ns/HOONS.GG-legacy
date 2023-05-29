@@ -8,8 +8,6 @@ import DefaultLayout from '@components/layouts/DefaultLayouts';
 // templates
 import MainSection from '@components/_templetes/Home/MainSection';
 import Section0 from '@components/_templetes/Home/Section0';
-import Section1 from '@components/_templetes/Home/Section1';
-import Section2 from '@components/_templetes/Home/Section2';
 
 // constants
 import { gray } from '@styles/Colors';
@@ -52,18 +50,6 @@ const Home: NextPage = () => {
           <Section0 />
         </Section>
         {/* Section 0 end */}
-
-        {/* Section 1 */}
-        <Section backgroundGray>
-          <Section1 />
-        </Section>
-        {/* Section 1 end */}
-
-        {/* Section 2 */}
-        <Section>
-          <Section2 />
-        </Section>
-        {/* Section 2 end */}
       </HomeWrapper>
     </DefaultLayout>
   );

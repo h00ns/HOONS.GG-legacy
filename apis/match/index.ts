@@ -6,9 +6,10 @@ import { AxiosError, AxiosResponse } from "axios"
  *  매치 리스트 가져오기 API
  *  @function getMatchsApi
  *  @param {string} puuid puuid
+ *  @param {number} start 시작 index
  */
-export const getMatchsApi = ({ puuid }: getMatchsPayload): Promise<AxiosResponse<getMatchsData, AxiosError>> => {
-  return API.get(`/api/match/${puuid}`)
+export const getMatchsApi = ({ puuid, start }: getMatchsPayload): Promise<AxiosResponse<getMatchsData, AxiosError>> => {
+  return API.get(`/api/match/${puuid}?start=${start}`)
 }
 
 /**

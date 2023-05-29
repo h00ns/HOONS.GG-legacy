@@ -15,9 +15,11 @@ import { TypoSize } from '@constants/atoms/Typography';
 
 //  types
 import { ParticipantsType } from '@customType/match';
+import { mq } from '@utils/style';
 
 //  hooks
 import { useGetChampionDataById } from '@hooks/service/useGetChampionDataById';
+import DamageBox from './DamageBox';
 
 type Props = {
   data: ParticipantsType;
@@ -27,6 +29,17 @@ type Props = {
 const Layout = styled.div`
   padding: 4px;
 
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+
+  ${mq['md']} {
+    flex-direction: column;
+    row-gap: 4px;
+  }
+`;
+
+const FlexColumnBox = styled.div`
   display: flex;
   align-items: center;
   column-gap: 12px;
@@ -48,7 +61,7 @@ const ChampionLevelWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  width: 100px;
+  width: 130px;
 
   display: flex;
   flex-direction: column;
@@ -56,7 +69,17 @@ const TextWrapper = styled.div`
 `;
 
 export default function PlayerRow({ data, myName }: Props) {
-  const { summonerName, championId, champLevel, kills, deaths, assists } = data ?? {};
+  const {
+    summonerName,
+    championId,
+    champLevel,
+    kills,
+    deaths,
+    assists,
+    totalMinionsKilled,
+    totalDamageDealt,
+    totalDamageTaken,
+  } = data ?? {};
   const isMyName = summonerName === myName;
 
   const championData = useGetChampionDataById(championId!);
@@ -67,29 +90,35 @@ export default function PlayerRow({ data, myName }: Props) {
   return (
     <NextLink href={SEARCH}>
       <Layout>
-        <ChampionWrapper>
-          <Champion size="40px" imagePath={imagePath ?? ''} />
-          <ChampionLevelWrapper>
-            <Typography size={TypoSize.B5} color={white}>
-              {champLevel}
+        <FlexColumnBox>
+          <ChampionWrapper>
+            <Champion size="40px" imagePath={imagePath ?? ''} />
+            <ChampionLevelWrapper>
+              <Typography size={TypoSize.B5} color={white}>
+                {champLevel}
+              </Typography>
+            </ChampionLevelWrapper>
+          </ChampionWrapper>
+
+          {/* Spell Box */}
+          <SpellBox size="20px" data={data} />
+          {/* Spell Box end */}
+
+          <TextWrapper>
+            <Typography size={isMyName ? TypoSize.SH4 : TypoSize.B4}>{summonerName}</Typography>
+            <Typography size={TypoSize.B4} color={gray.gray6}>
+              {kills} / {deaths} / {assists} (cs : {totalMinionsKilled})
             </Typography>
-          </ChampionLevelWrapper>
-        </ChampionWrapper>
+          </TextWrapper>
+        </FlexColumnBox>
 
-        {/* Spell Box */}
-        <SpellBox size="20px" data={data} />
-        {/* Spell Box end */}
+        <FlexColumnBox>
+          <DamageBox deal={totalDamageDealt} taken={totalDamageTaken} />
 
-        <TextWrapper>
-          <Typography size={isMyName ? TypoSize.SH4 : TypoSize.B4}>{summonerName}</Typography>
-          <Typography size={TypoSize.B4} color={gray.gray6}>
-            {kills} / {deaths} / {assists}
-          </Typography>
-        </TextWrapper>
-
-        {/* Item Box */}
-        <ItemBox size="25px" data={data} />
-        {/* Item Box end */}
+          {/* Item Box */}
+          <ItemBox size="25px" data={data} />
+          {/* Item Box end */}
+        </FlexColumnBox>
       </Layout>
     </NextLink>
   );

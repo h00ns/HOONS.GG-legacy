@@ -27,10 +27,6 @@ const InfiniteScrollSection = styled.div`
 export default function MatchCardList({ puuid }: Props) {
   const sectionRef = useRef(null);
 
-  /**
-   *  @todo
-   *  useInifiniteQuery -> useQueries 변경 후 inifiniteScroll 자체 구현
-   */
   const { getMatchsData, getMatchsNextPage } = useGetMatchsFetch({ puuid });
   const matchsData = getMatchsData?.pages.flatMap((pageData) => pageData);
 

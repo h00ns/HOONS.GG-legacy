@@ -17,7 +17,7 @@ const Layout = styled.div`
   row-gap: 8px;
 `;
 
-const InfiniteScrollSection = styled.div`
+const ObserverSection = styled.div`
   margin-top: 24px;
 `;
 
@@ -25,16 +25,12 @@ const InfiniteScrollSection = styled.div`
  *  MatchCard -> infinite scroll
  */
 export default function MatchCardList({ puuid }: Props) {
-  const sectionRef = useRef(null);
+  const observerRef = useRef(null);
 
-  /**
-   *  @todo
-   *  useInifiniteQuery -> useQueries 변경 후 inifiniteScroll 자체 구현
-   */
   const { getMatchsData, getMatchsNextPage } = useGetMatchsFetch({ puuid });
   const matchsData = getMatchsData?.pages.flatMap((pageData) => pageData);
 
-  useInfiniteScroll({ ref: sectionRef, callback: loadMore });
+  useInfiniteScroll({ ref: observerRef, callback: loadMore });
 
   function loadMore() {
     getMatchsNextPage();
@@ -45,7 +41,7 @@ export default function MatchCardList({ puuid }: Props) {
       {matchsData?.map((matchId, idx) => (
         <MatchCard matchId={matchId} puuid={puuid} key={idx} />
       ))}
-      <InfiniteScrollSection ref={sectionRef} />
+      <ObserverSection ref={observerRef} />
     </Layout>
   );
 }

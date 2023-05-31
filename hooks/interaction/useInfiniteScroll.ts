@@ -11,8 +11,6 @@ type UseInfiniteScrollOptions = {
   readonly threshold: number;
 };
 
-const CHECK_WINDOW = typeof window !== 'undefined';
-
 // Intersection Observer를 활용한 무한스크롤 hook
 export const useInfiniteScroll = ({ ref, callback, options = { threshold: 0 } }: UseInfiniteScrollProperties) => {
   const handleInfiniteScroll = (entries: IntersectionObserverEntry[]) => {
@@ -22,8 +20,8 @@ export const useInfiniteScroll = ({ ref, callback, options = { threshold: 0 } }:
       }
     });
   }
-  
-  const [observer] = useState(() => (CHECK_WINDOW ? new IntersectionObserver(handleInfiniteScroll, options) : undefined));
+
+  const [observer] = useState(new IntersectionObserver(handleInfiniteScroll, options));
   useEffect(() => {
     if (!observer) return
     

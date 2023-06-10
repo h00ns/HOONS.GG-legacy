@@ -292,16 +292,18 @@ Vercel을 통해 배포환경을 구축하였습니다.
  ┣ 📜typing.d.ts
  ┗ 📜yarn.lock
 ```
-pages : 페이지 <br />
-components : 컴포넌트 <br />
-apis : api <br />
-hooks : fetch 관련 및 서비스 로직 관련 custom hooks <br />
-customTypes : api 관련 types <br />
-constants : 상수 <br />
-recoil : recoil 전역 상태 <br />
-styles : 스타일 관련 상수 <br />
-utils : 유틸 기능 <br />
-assets : image 로 폴더를 나눠 프로젝트를 구성하였습니다.
+ - pages : 페이지
+ - components : 컴포넌트 
+ - apis : api 
+ - hooks : fetch 관련 및 서비스 로직 관련 custom hooks
+ - customTypes : api 관련 types
+ - constants : 상수
+ - recoil : recoil 전역 상태 
+ - styles : 스타일 관련 상수
+ - utils : 유틸 기능
+ - assets : image <br/>
+ 
+ 로 폴더를 나눠 프로젝트를 구성하였습니다.
 
 ## 화면 구성
 PC <br />

@@ -1,4 +1,3 @@
-
 import { RefObject, useEffect, useState } from "react";
 
 type UseInfiniteScrollProperties = {
@@ -11,7 +10,10 @@ type UseInfiniteScrollOptions = {
   readonly threshold: number;
 };
 
-// Intersection Observer를 활용한 무한스크롤 hook
+/**
+ *  @hooks useInfiniteScroll
+ *  InfiniteScroll Hooks with Intersection Observer
+ */
 export const useInfiniteScroll = ({ ref, callback, options = { threshold: 0 } }: UseInfiniteScrollProperties) => {
   const handleInfiniteScroll = (entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {

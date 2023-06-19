@@ -30,11 +30,7 @@ export default function MatchCardList({ puuid }: Props) {
   const { getMatchsData, getMatchsNextPage } = useGetMatchsFetch({ puuid });
   const matchsData = getMatchsData?.pages.flatMap((pageData) => pageData);
 
-  useInfiniteScroll({ ref: observerRef, callback: loadMore });
-
-  function loadMore() {
-    getMatchsNextPage();
-  }
+  useInfiniteScroll({ ref: observerRef, callback: getMatchsNextPage });
 
   return (
     <Layout>

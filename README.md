@@ -5,7 +5,7 @@ https://hoons.site
 
 Leage of Legend Search Platform
 
-23.05.24 ~ 23.06.29 develop
+23.05.24 ~ 23.05.29 develop
 
 ## Tech Stack
 
